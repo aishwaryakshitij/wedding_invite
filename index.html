@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: none;
+    }
+
+    /* ─── SECTION ─────────────────────────────────────────── */
+    .section {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ─── LEFT PANEL ──────────────────────────────────────── */
+    .panel-text {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 48px;
+      background-image: url("svf texture background.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Rangoli */
+    .rangoli {
+      position: absolute;
+      width: 140%;
+      max-width: 140%;
+      aspect-ratio: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      animation: spin 60s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Text inner — sits above rangoli */
+    .panel-text-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      color: #7b1a10;
+    }
+
+    /* Ganesh / top icon */
+    .invite-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+      color: #7b1a10;
+    }
+
+    /* Event name */
+    .invite-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #7b1a10;
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+
+    /* Body copy */
+    .invite-body {
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: #7b1a10;
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    /* Date block */
+    .invite-date {
+      margin-bottom: 28px;
+    }
+
+    .invite-date .month {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #7b1a10;
+      margin-bottom: 8px;
+    }
+
+    .invite-date .day-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7b1a10;
+    }
+
+    .invite-date .day-row .date-num {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .invite-date .dotted-line {
+      flex: 1;
+      border-top: 1px dotted #7b1a10;
+      opacity: 0.5;
+    }
+
+    .invite-date .year {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 8px;
+      color: #7b1a10;
+    }
+
+    /* Venue */
+    .invite-venue .at {
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #7b1a10;
+    }
+
+    .invite-venue .place {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #7b1a10;
+    }
+
+    /* ─── PAGE 1 OVERRIDES ───────────────────────────────── */
+    .section-page1 {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hide spinning rangoli on page 1 */
+    .section-page1 .rangoli {
+      display: none;
+    }
+
+    /* Bride & groom name script font */
+    .invite-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 2.1rem;
+      font-weight: 400;
+      color: #7b1a10;
+      line-height: 1.2;
+      margin: 8px 0 4px;
+    }
+
+    .invite-relation {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #7b1a10;
+      margin-bottom: 4px;
+    }
+
+    .invite-parents {
+      font-size: 1rem;
+      color: #7b1a10;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .invite-ampersand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: #7b1a10;
+      margin: 8px 0;
+    }
+
+    /* Kalyanam title box */
+    .invite-title-box {
+      display: inline-block;
+      border: 2px solid #7b1a10;
+      padding: 6px 28px;
+      margin-bottom: 20px;
+    }
+
+    /* Red shirt man straddling the centre seam */
+    .red-shirt-man {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-62%);
+      height: 68%;
+      width: auto;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* ─── RIGHT PANEL ─────────────────────────────────────── */
+    .panel-image {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel-image img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── MUTE BUTTON ─────────────────────────────────────── */
+    #mute-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      background: rgba(123, 26, 16, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 1.3rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s;
+    }
+
+    #mute-btn:hover { background: rgba(123, 26, 16, 0.95); }
+
+    /* ─── MOBILE ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        min-height: unset;
+      }
+
+      .panel-image {
+        order: 1;
+        height: 100vw;
+        min-height: 380px;
+      }
+
+      .panel-text {
+        order: 2;
+        padding: 48px 28px;
+      }
+
+      .invite-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Section 1 · Kalyanam (Wedding invite)                 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="section section-page1">
+    <div class="panel-text">
+      <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
+      <div class="panel-text-inner">
+        <span class="invite-icon">🕉</span>
+        <p class="invite-body" style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">
+          Welcome to our
+        </p>
+        <div class="invite-title-box">
+          <h2 class="invite-title">Wedding</h2>
+        </div>
+        <p class="invite-name" style="margin-top:24px;">Aishwarya &amp; Kshitij</p>
+        <p class="invite-body" style="margin-top:16px;">
+          With joyous hearts, we invite you<br />
+          to celebrate our union and<br />
+          share in our joy.
+        </p>
+      </div>
+    </div>
+    <div class="panel-image">
+      <img src="PAGE 1.svg" alt="Wedding" />
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Section 2 · Haldi                                     -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="panel-text">
+      <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
+      <div class="panel-text-inner">
+        <span class="invite-icon">🌼</span>
+        <h2 class="invite-title">Haldi</h2>
+        <p class="invite-body">
+          A ceremony of golden blessings<br />
+          and joyful laughter.<br />
+          Come paint us in turmeric and love<br />
+          as we prepare for the sacred union ahead.
+        </p>
+        <div class="invite-date">
+          <div class="month">August</div>
+          <div class="day-row">
+            <span class="dotted-line"></span>
+            <span>Sunday</span>
+            <span class="dotted-line"></span>
+            <span class="date-num">30</span>
+            <span class="dotted-line"></span>
+            <span>At 10 AM</span>
+            <span class="dotted-line"></span>
+          </div>
+          <div class="year">2026</div>
+        </div>
+        <div class="invite-venue">
+          <p class="at">at</p>
+          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel-image">
+      <img src="haldi painting.png" alt="Haldi" />
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Section 4 · Reception                                 -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="panel-text">
+      <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
+      <div class="panel-text-inner">
+        <span class="invite-icon">🕉</span>
+        <h2 class="invite-title">Reception</h2>
+        <p class="invite-body">
+          An evening of music, dance, and<br />
+          endless celebration!<br />
+          Join us for the Sangeet Night<br />
+          where families unite,<br />
+          performances light up the stage,<br />
+          and love is celebrated with rhythm<br />
+          and joy.
+        </p>
+        <div class="invite-date">
+          <div class="month">August</div>
+          <div class="day-row">
+            <span class="dotted-line"></span>
+            <span>Monday</span>
+            <span class="dotted-line"></span>
+            <span class="date-num">31</span>
+            <span class="dotted-line"></span>
+            <span>At 6 PM</span>
+            <span class="dotted-line"></span>
+          </div>
+          <div class="year">2026</div>
+        </div>
+        <div class="invite-venue">
+          <p class="at">at</p>
+          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel-image">
+      <img src="wedding 2.png" alt="Reception" />
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Section 5 · Reception 2                               -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="panel-text">
+      <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
+      <div class="panel-text-inner">
+        <span class="invite-icon">🎶</span>
+        <h2 class="invite-title">Heading goes here</h2>
+        <p class="invite-body">
+          Your body copy goes here.<br />
+          Replace with the details for this event.
+        </p>
+        <div class="invite-date">
+          <div class="month">August</div>
+          <div class="day-row">
+            <span class="dotted-line"></span>
+            <span>Day</span>
+            <span class="dotted-line"></span>
+            <span class="date-num">31</span>
+            <span class="dotted-line"></span>
+            <span>At 6 PM</span>
+            <span class="dotted-line"></span>
+          </div>
+          <div class="year">2026</div>
+        </div>
+        <div class="invite-venue">
+          <p class="at">at</p>
+          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel-image">
+      <img src="Reception 2.png" alt="Reception 2" />
+    </div>
+  </section>
+
+  <!-- ── Background music ── -->
+  <audio id="bg-audio" loop>
+    <source src="Sundari Nene Nuvvanta Flute-Ilayaraja BGM-RelaxingMusic.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button id="mute-btn" title="Mute / Unmute">🔊</button>
+
+  <script>
+    const audio = document.getElementById('bg-audio');
+    const btn   = document.getElementById('mute-btn');
+
+    let started = false;
+    function startAudio() {
+      if (!started) { audio.play().catch(() => {}); started = true; }
+    }
+    document.addEventListener('click',      startAudio, { once: true });
+    document.addEventListener('scroll',     startAudio, { once: true });
+    document.addEventListener('touchstart', startAudio, { once: true });
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!started) {
+        audio.play().catch(() => {});
+        started = true;
+        audio.muted = false;
+        btn.textContent = '🔊';
+      } else {
+        audio.muted = !audio.muted;
+        btn.textContent = audio.muted ? '🔇' : '🔊';
+      }
+    });
+  </script>
+
+</body>
+</html>
