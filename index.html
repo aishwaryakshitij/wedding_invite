@@ -273,7 +273,19 @@
       width: 100%; height: 100%;
       background-image: url('SVG paint/top.svg');
       background-size: auto 100%;
-      background-position: right -150px bottom 48vh;
+      background-position: right -160px bottom 49vh;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .panel-bottom-edge {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('SVG paint/bottom.svg');
+      background-size: auto 100%;
+      background-position: right -180px bottom -58vh;
       background-repeat: no-repeat;
       pointer-events: none;
       z-index: 3;
@@ -502,6 +514,7 @@
     </div>
     <div class="panel-image">
       <div class="panel-top-edge"></div>
+      <div class="panel-bottom-edge"></div>
       <img src="images_final/Page 1.png" alt="Wedding" />
     </div>
   </section>
@@ -541,6 +554,7 @@
     </div>
     <div class="panel-image">
       <div class="panel-top-edge"></div>
+      <div class="panel-bottom-edge"></div>
       <img src="images_final/Sakhar puda portrait.png" alt="Sakar Puda" />
     </div>
   </section>
@@ -581,6 +595,7 @@
     </div>
     <div class="panel-image">
       <div class="panel-top-edge"></div>
+      <div class="panel-bottom-edge"></div>
       <img src="test/HALDI FIN.svg" alt="Haldi &amp; Mehendi" style="object-fit: cover;" />
     </div>
   </section>
@@ -624,6 +639,7 @@
     </div>
     <div class="panel-image">
       <div class="panel-top-edge"></div>
+      <div class="panel-bottom-edge"></div>
       <img src="wedding 2.png" alt="Wedding" />
     </div>
   </section>
@@ -662,6 +678,7 @@
     </div>
     <div class="panel-image">
       <div class="panel-top-edge"></div>
+      <div class="panel-bottom-edge"></div>
       <img src="test/Reception portrait.png" alt="Reception" style="object-fit: cover;" />
     </div>
   </section>
