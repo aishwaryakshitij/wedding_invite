@@ -835,12 +835,14 @@
     // URL-based personalisation (?from=Name)
     (function () {
       var personas = {
-        'Arvind':   { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Arvind" },
-        'Shanthi':  { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Shanthi" },
-        'Sharan':   { header: "Welcome to my sister's wedding",   names: "Aishwarya & Kshitij", name: "Sharan" },
-        'Maruthi':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Maruthi" },
-        'Surekha':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Surekha" },
-        'Nitiketh': { header: "Welcome to my brother's wedding",  names: "Kshitij & Aishwarya", name: "Nitiketh" }
+        'Arvind':   { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Arvind Kumar" },
+        'Shanthi':  { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Jeya Shanthi" },
+        'Sharan':   { header: "Welcome to my sister's wedding",   names: "Aishwarya & Kshitij", name: "Sharan Srinivas" },
+        'Maruti':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Maruti Vejre" },
+        'Surekha':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Surekha Vejre" },
+        'Nitiketh': { header: "Welcome to my brother's wedding",  names: "Kshitij & Aishwarya", name: "Nitiketh Vejre" },
+        'VidhyaVarun': { header: "Welcome to our sister's wedding",  names: "Aishwarya & Kshitij", name: "Vidhya, Varun and Varsha" },
+        'VikaManoj': { header: "Welcome to our sister's wedding",  names: "Aishwarya & Kshitij", name: "Viveka, Manoj, Niharika and Aadvik" },
       };
       var from = new URLSearchParams(window.location.search).get('from');
       var p = from && personas[from];
