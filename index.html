@@ -23,7 +23,8 @@
 
     /* ─── LEFT PANEL ──────────────────────────────────────── */
     .panel-text {
-      flex: 1;
+      flex: 0 0 50%;
+      max-width: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -151,6 +152,22 @@
       color: #7b1a10;
     }
 
+    /* ─── UNIFIED BG SECTIONS (Haldi, Reception) ────────── */
+    .section-unified {
+      background-image: url("svf texture background.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .section-unified .panel-text {
+      background: none;
+    }
+
+    .section-unified .panel-image {
+      background: none;
+    }
+
     /* ─── PAGE 1 OVERRIDES ───────────────────────────────── */
     .section-page1 {
       position: relative;
@@ -216,7 +233,8 @@
 
     /* ─── RIGHT PANEL ─────────────────────────────────────── */
     .panel-image {
-      flex: 1;
+      flex: 0 0 50%;
+      max-width: 50%;
       overflow: hidden;
       position: relative;
     }
@@ -438,19 +456,57 @@
       </div>
     </div>
     <div class="panel-image">
-      <img src="PAGE 1.svg" alt="Wedding" />
+      <img src="images_final/Page 1.png" alt="Wedding" />
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════ -->
-  <!-- Section 2 · Haldi                                     -->
+  <!-- Section 2 · Sakar Puda                                -->
   <!-- ══════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
+        <span class="invite-icon">🌸</span>
+        <h2 class="invite-title">Sakar Puda</h2>
+        <p class="invite-body">
+          A cherished tradition of sweets and blessings,<br />
+          as two families come together<br />
+          to seal a lifetime of togetherness.
+        </p>
+        <div class="invite-date">
+          <div class="month">August</div>
+          <div class="day-row">
+            <span class="dotted-line"></span>
+            <span>Day</span>
+            <span class="dotted-line"></span>
+            <span class="date-num">--</span>
+            <span class="dotted-line"></span>
+            <span>At -- PM</span>
+            <span class="dotted-line"></span>
+          </div>
+          <div class="year">2026</div>
+        </div>
+        <div class="invite-venue">
+          <p class="at">at</p>
+          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel-image">
+      <img src="images_final/Sakhar puda portrait.png" alt="Sakar Puda" />
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Section 3 · Haldi & Mehendi                           -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="section section-unified">
+    <div class="panel-text">
+      <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
+      <div class="panel-text-inner">
         <span class="invite-icon">🌼</span>
-        <h2 class="invite-title">Haldi</h2>
+        <h2 class="invite-title">Haldi &amp; Mehendi</h2>
         <p class="invite-body">
           A ceremony of golden blessings<br />
           and joyful laughter.<br />
@@ -477,19 +533,19 @@
       </div>
     </div>
     <div class="panel-image">
-      <img src="haldi painting.png" alt="Haldi" />
+      <img src="test/HALDI FIN.svg" alt="Haldi &amp; Mehendi" style="object-fit: cover;" />
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════ -->
-  <!-- Section 4 · Reception                                 -->
+  <!-- Section 4 · Wedding                                   -->
   <!-- ══════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
         <span class="invite-icon">🕉</span>
-        <h2 class="invite-title">Reception</h2>
+        <h2 class="invite-title">Wedding</h2>
         <p class="invite-body">
           An evening of music, dance, and<br />
           endless celebration!<br />
@@ -519,19 +575,19 @@
       </div>
     </div>
     <div class="panel-image">
-      <img src="wedding 2.png" alt="Reception" />
+      <img src="wedding 2.png" alt="Wedding" />
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════ -->
-  <!-- Section 5 · Reception 2                               -->
+  <!-- Section 5 · Reception                                 -->
   <!-- ══════════════════════════════════════════════════════ -->
-  <section class="section">
+  <section class="section section-unified">
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
         <span class="invite-icon">🎶</span>
-        <h2 class="invite-title">Heading goes here</h2>
+        <h2 class="invite-title">Reception</h2>
         <p class="invite-body">
           Your body copy goes here.<br />
           Replace with the details for this event.
@@ -556,7 +612,7 @@
       </div>
     </div>
     <div class="panel-image">
-      <img src="Reception 2.png" alt="Reception 2" />
+      <img src="test/recenFIN.svg" alt="Reception" style="object-fit: cover;" />
     </div>
   </section>
 
