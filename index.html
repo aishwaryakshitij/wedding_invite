@@ -35,26 +35,27 @@
       background-position: center;
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
     }
 
     /* Rangoli */
     .rangoli {
       position: absolute;
-      width: 140%;
-      max-width: 140%;
+      width: 100%;
+      max-width: 100%;
       aspect-ratio: 1;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0; left: 0; right: 0; bottom: 0;
+      margin: auto;
       opacity: 1;
-      animation: spin 60s linear infinite;
+      animation: spin-rangoli 60s linear infinite;
       pointer-events: none;
     }
 
-    @keyframes spin {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    @keyframes spin-rangoli {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
+
 
     /* Text inner — sits above rangoli */
     .panel-text-inner {
@@ -68,10 +69,10 @@
 
     /* Ganesh / top icon */
     .invite-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
       display: block;
-      color: #7b1a10;
+      margin: 0 auto 12px;
+      width: 60px;
+      height: auto;
     }
 
     /* Event name */
@@ -497,7 +498,7 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <span class="invite-icon">🕉</span>
+        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <p class="invite-body" style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:20px;">
           Welcome to our
         </p>
@@ -526,7 +527,7 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <span class="invite-icon">🌸</span>
+        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Sakar Puda</h2>
         <p class="invite-body">
           A cherished tradition of sweets and blessings,<br />
@@ -566,7 +567,7 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <span class="invite-icon">🌼</span>
+        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Haldi &amp; Mehendi</h2>
         <p class="invite-body">
           A ceremony of golden blessings<br />
@@ -607,7 +608,7 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <span class="invite-icon">🕉</span>
+        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Wedding</h2>
         <p class="invite-body">
           An evening of music, dance, and<br />
@@ -651,7 +652,7 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <span class="invite-icon">🎶</span>
+        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Reception</h2>
         <p class="invite-body">
           Your body copy goes here.<br />
@@ -688,7 +689,7 @@
   <!-- ══════════════════════════════════════════════════════ -->
   <section class="section-rsvp">
     <div class="rsvp-inner">
-      <span class="invite-icon">💌</span>
+      <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
       <div class="invite-title-box" style="margin-bottom:16px;">
         <h2 class="invite-title">RSVP</h2>
       </div>
