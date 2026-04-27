@@ -574,7 +574,7 @@
       <div class="panel-text-inner">
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <p id="welcome-header" style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; margin-bottom:12px; font-weight:700;">Welcome to the wedding of</p>
-        <p class="invite-name" style="margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</p>
+        <p id="welcome-names" class="invite-name" style="margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</p>
         <p id="welcome-greeting" class="invite-body" style="margin-top:50px; margin-bottom:6px; text-align:left; font-weight:700; line-height:1.5;">Dearest family &amp; friends,</p>
         <p class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
           As we gather to celebrate this joyous occasion, we extend our heartfelt gratitude for being a part of these cherished moments. Your presence adds so much love and meaning to our celebration, making it truly unforgettable.
@@ -835,17 +835,18 @@
     // URL-based personalisation (?from=Name)
     (function () {
       var personas = {
-        'Arvind':   { header: "Welcome to my daughter's wedding", name: "Arvind" },
-        'Shanthi':  { header: "Welcome to my daughter's wedding", name: "Shanthi" },
-        'Sharan':   { header: "Welcome to my sister's wedding",   name: "Sharan" },
-        'Maruthi':  { header: "Welcome to my son's wedding",      name: "Maruthi" },
-        'Surekha':  { header: "Welcome to my son's wedding",      name: "Surekha" },
-        'Nitiketh': { header: "Welcome to my brother's wedding",  name: "Nitiketh" }
+        'Arvind':   { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Arvind" },
+        'Shanthi':  { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Shanthi" },
+        'Sharan':   { header: "Welcome to my sister's wedding",   names: "Aishwarya & Kshitij", name: "Sharan" },
+        'Maruthi':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Maruthi" },
+        'Surekha':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Surekha" },
+        'Nitiketh': { header: "Welcome to my brother's wedding",  names: "Kshitij & Aishwarya", name: "Nitiketh" }
       };
       var from = new URLSearchParams(window.location.search).get('from');
       var p = from && personas[from];
       if (p) {
         document.getElementById('welcome-header').textContent       = p.header;
+        document.getElementById('welcome-names').textContent        = p.names;
         document.getElementById('welcome-signoff').textContent      = 'Warm regards,';
         document.getElementById('welcome-signoff-name').textContent = p.name;
       }
