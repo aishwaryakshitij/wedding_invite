@@ -42,14 +42,15 @@
       position: absolute;
       inset: 0;
       border: 10px solid #7b1a10;
+      box-shadow: inset 0 0 0 3px #c4a44a;
       pointer-events: none;
       z-index: 1000;
     }
 
     /* ─── LEFT PANEL ──────────────────────────────────────── */
     .panel-text {
-      flex: 0 0 50%;
-      max-width: 50%;
+      flex: 0 0 55%;
+      max-width: 55%;
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -86,7 +87,7 @@
     .panel-text-inner {
       position: relative;
       z-index: 1;
-      max-width: 420px;
+      max-width: 400px;
       width: 100%;
       text-align: center;
       color: #7b1a10;
@@ -95,8 +96,8 @@
     /* Ganesh / top icon */
     .invite-icon {
       display: block;
-      margin: 0 auto 12px;
-      width: 66px;
+      margin: 0 auto 60px;
+      width: 95px;
       height: auto;
     }
 
@@ -117,6 +118,7 @@
       color: #7b1a10;
       margin-bottom: 36px;
       font-style: italic;
+      font-weight: 700;
     }
 
     /* Date block */
@@ -130,6 +132,7 @@
       text-transform: uppercase;
       color: #7b1a10;
       margin-bottom: 8px;
+      font-weight: 700;
     }
 
     .invite-date .day-row {
@@ -141,6 +144,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #7b1a10;
+      font-weight: 700;
     }
 
     .invite-date .day-row .date-num {
@@ -170,12 +174,14 @@
       font-size: 1rem;
       margin-bottom: 6px;
       color: #7b1a10;
+      font-weight: 700;
     }
 
     .invite-venue .place {
       font-size: 1rem;
       line-height: 1.6;
       color: #7b1a10;
+      font-weight: 700;
     }
 
     /* ─── UNIFIED BG SECTIONS (Haldi, Reception) ────────── */
@@ -205,8 +211,8 @@
       display: none;
     }
 
-    /* Extra visual weight on page 1 text */
-    .section-page1 .panel-text-inner p:not(.invite-name) {
+    /* Extra visual weight on all pages */
+    .panel-text-inner p:not(.invite-name) {
       -webkit-text-stroke: 0.6px currentColor;
     }
 
@@ -278,8 +284,8 @@
 
     /* ─── RIGHT PANEL ─────────────────────────────────────── */
     .panel-image {
-      flex: 0 0 50%;
-      max-width: 50%;
+      flex: 0 0 45%;
+      max-width: 45%;
       overflow: hidden;
       position: relative;
     }
@@ -397,6 +403,7 @@
       position: absolute;
       inset: 0;
       border: 10px solid #7b1a10;
+      box-shadow: inset 0 0 0 3px #c4a44a;
       pointer-events: none;
       z-index: 1000;
     }
@@ -538,7 +545,7 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" style="margin-bottom:60px;" />
+        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <p style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; margin-bottom:12px; font-weight:700;">Welcome to the wedding of</p>
         <p class="invite-name" style="margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</p>
         <p class="invite-body" style="margin-top:50px; margin-bottom:6px; text-align:left; font-weight:700; line-height:1.5;">Dearest family &amp; friends,</p>
@@ -558,7 +565,7 @@
     <div class="panel-image">
       <!-- <div class="panel-top-edge"></div> -->
       <!-- <div class="panel-bottom-edge"></div> -->
-      <img src="images_final/Page 1.png" alt="Wedding" />
+      <img src="Page 1 decluttrd.png" alt="Wedding" />
     </div>
   </section>
 
@@ -572,17 +579,15 @@
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Sakar Puda</h2>
         <p class="invite-body">
-          A cherished tradition of sweets and blessings,<br />
-          as two families come together<br />
-          to seal a lifetime of togetherness.
+          A cherished tradition of sweets and blessings, as two families come together to seal a lifetime of togetherness.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
           <div class="day-row">
             <span class="dotted-line"></span>
-            <span>Day</span>
+            <span>Friday</span>
             <span class="dotted-line"></span>
-            <span class="date-num">--</span>
+            <span class="date-num">28</span>
             <span class="dotted-line"></span>
             <span>At -- PM</span>
             <span class="dotted-line"></span>
@@ -591,7 +596,7 @@
         </div>
         <div class="invite-venue">
           <p class="at">at</p>
-          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+          <p class="place" style="font-weight:700;">East Beekman Place<br />Denver, CO</p>
         </div>
       </div>
     </div>
@@ -612,18 +617,15 @@
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Haldi &amp; Mehendi</h2>
         <p class="invite-body">
-          A ceremony of golden blessings<br />
-          and joyful laughter.<br />
-          Come paint us in turmeric and love<br />
-          as we prepare for the sacred union ahead.
+          A ceremony of golden blessings and joyful laughter. Come paint us in turmeric and love as we prepare for the sacred union ahead.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
           <div class="day-row">
             <span class="dotted-line"></span>
-            <span>Sunday</span>
+            <span>Saturday</span>
             <span class="dotted-line"></span>
-            <span class="date-num">30</span>
+            <span class="date-num">29</span>
             <span class="dotted-line"></span>
             <span>At 10 AM</span>
             <span class="dotted-line"></span>
@@ -632,14 +634,14 @@
         </div>
         <div class="invite-venue">
           <p class="at">at</p>
-          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+          <p class="place" style="font-weight:700;">East Beekman Place<br />Denver, CO</p>
         </div>
       </div>
     </div>
     <div class="panel-image">
       <!-- <div class="panel-top-edge"></div> -->
       <!-- <div class="panel-bottom-edge"></div> -->
-      <img src="test/HALDI FIN.svg" alt="Haldi &amp; Mehendi" style="object-fit: cover;" />
+      <img src="images_final/Haldi portrait 2.png" alt="Haldi &amp; Mehendi" />
     </div>
   </section>
 
@@ -653,13 +655,7 @@
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Wedding</h2>
         <p class="invite-body">
-          An evening of music, dance, and<br />
-          endless celebration!<br />
-          Join us for the Sangeet Night<br />
-          where families unite,<br />
-          performances light up the stage,<br />
-          and love is celebrated with rhythm<br />
-          and joy.
+          Join us as we celebrate our sacred Muhurtham — the blessed moment two souls are bound by fire, family, and the eternal promise of a lifetime together.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
@@ -669,14 +665,14 @@
             <span class="dotted-line"></span>
             <span class="date-num">31</span>
             <span class="dotted-line"></span>
-            <span>At 6 PM</span>
+            <span>At 10 AM</span>
             <span class="dotted-line"></span>
           </div>
           <div class="year">2026</div>
         </div>
         <div class="invite-venue">
           <p class="at">at</p>
-          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+          <p class="place" style="font-weight:700;">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
         </div>
       </div>
     </div>
@@ -697,25 +693,24 @@
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
         <h2 class="invite-title">Reception</h2>
         <p class="invite-body">
-          Your body copy goes here.<br />
-          Replace with the details for this event.
+          The celebration continues! Join us for an evening of music, dance, and endless joy as families come together to toast the newlyweds and revel in love.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
           <div class="day-row">
             <span class="dotted-line"></span>
-            <span>Day</span>
+            <span>Monday</span>
             <span class="dotted-line"></span>
             <span class="date-num">31</span>
             <span class="dotted-line"></span>
-            <span>At 6 PM</span>
+            <span>At 5 PM</span>
             <span class="dotted-line"></span>
           </div>
           <div class="year">2026</div>
         </div>
         <div class="invite-venue">
           <p class="at">at</p>
-          <p class="place">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
+          <p class="place" style="font-weight:700;">Baldoria on the Water<br />Lakewood, Colorado, USA</p>
         </div>
       </div>
     </div>
@@ -732,9 +727,7 @@
   <section class="section-rsvp">
     <div class="rsvp-inner">
       <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
-      <div class="invite-title-box" style="margin-bottom:16px;">
-        <h2 class="invite-title">RSVP</h2>
-      </div>
+      <h2 class="invite-title" style="margin-bottom:16px;">RSVP</h2>
       <p class="invite-body" style="margin-bottom:0;">
         Kindly respond by <strong>August 1st, 2026</strong>
       </p>
