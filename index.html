@@ -49,8 +49,8 @@
 
     /* ─── LEFT PANEL ──────────────────────────────────────── */
     .panel-text {
-      flex: 0 0 55%;
-      max-width: 55%;
+      flex: 0 0 50%;
+      max-width: 50%;
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -284,10 +284,22 @@
 
     /* ─── RIGHT PANEL ─────────────────────────────────────── */
     .panel-image {
-      flex: 0 0 45%;
-      max-width: 45%;
-      overflow: hidden;
+      flex: 0 0 50%;
+      max-width: 50%;
+      overflow: visible;
       position: relative;
+    }
+
+    .panel-image::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -3px;
+      width: 16px;
+      height: calc(100% + 20px);
+      background: #efe0c6;
+      z-index: 999;
+      filter: url(#rough-left);
     }
 
     /* .panel-image::after {
@@ -537,6 +549,13 @@
 </style>
 </head>
 <body>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <filter id="rough-left" x="-50%" y="-2%" width="200%" height="104%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" seed="8" result="noise" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>
 
   <!-- ══════════════════════════════════════════════════════ -->
   <!-- Section 1 · Kalyanam (Wedding invite)                 -->
