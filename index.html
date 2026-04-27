@@ -573,9 +573,9 @@
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
-        <p style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; margin-bottom:12px; font-weight:700;">Welcome to the wedding of</p>
+        <p id="welcome-header" style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; margin-bottom:12px; font-weight:700;">Welcome to the wedding of</p>
         <p class="invite-name" style="margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</p>
-        <p class="invite-body" style="margin-top:50px; margin-bottom:6px; text-align:left; font-weight:700; line-height:1.5;">Dearest family &amp; friends,</p>
+        <p id="welcome-greeting" class="invite-body" style="margin-top:50px; margin-bottom:6px; text-align:left; font-weight:700; line-height:1.5;">Dearest family &amp; friends,</p>
         <p class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
           As we gather to celebrate this joyous occasion, we extend our heartfelt gratitude for being a part of these cherished moments. Your presence adds so much love and meaning to our celebration, making it truly unforgettable.
         </p>
@@ -585,8 +585,8 @@
         <p class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
           Thank you for your love, warmth, and blessings as we celebrate together.
         </p>
-        <p class="invite-body" style="margin-bottom:2px; text-align:right; font-weight:700; line-height:1.5;">With all our love,</p>
-        <p class="invite-name" style="color:#b8860b; text-align:right;">Aishwarya &amp; Kshitij</p>
+        <p id="welcome-signoff" class="invite-body" style="margin-bottom:2px; text-align:right; font-weight:700; line-height:1.5;">With all our love,</p>
+        <p id="welcome-signoff-name" class="invite-name" style="color:#b8860b; text-align:right;">Aishwarya &amp; Kshitij</p>
       </div>
     </div>
     <div class="panel-image">
@@ -604,9 +604,9 @@
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
-        <h2 class="invite-title">Sakar Puda</h2>
+        <h2 class="invite-title">Sakharpuda</h2>
         <p class="invite-body">
-          A cherished tradition of sweets and blessings, as two families come together to seal a lifetime of togetherness.
+          With the blessings of our families, we joyfully invite you to celebrate the Sakharpuda ceremony marking the beginning of our forever.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
@@ -616,7 +616,7 @@
             <span class="dotted-line"></span>
             <span class="date-num">28</span>
             <span class="dotted-line"></span>
-            <span>At -- PM</span>
+            <span>At 11 AM</span>
             <span class="dotted-line"></span>
           </div>
           <div class="year">2026</div>
@@ -818,9 +818,39 @@
     <source src="bgm.mp3" type="audio/mpeg" />
   </audio>
 
-  <button id="mute-btn" title="Mute / Unmute">🔊</button>
+  <button id="mute-btn" title="Mute / Unmute">
+    <svg id="icon-sound" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+    <svg id="icon-mute" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+  </button>
 
   <script>
+    // URL-based personalisation (?from=Name)
+    (function () {
+      var personas = {
+        'Arvind':   { header: "Welcome to my daughter's wedding", name: "Arvind" },
+        'Shanthi':  { header: "Welcome to my daughter's wedding", name: "Shanthi" },
+        'Sharan':   { header: "Welcome to my sister's wedding",   name: "Sharan" },
+        'Maruthi':  { header: "Welcome to my son's wedding",      name: "Maruthi" },
+        'Surekha':  { header: "Welcome to my son's wedding",      name: "Surekha" },
+        'Nitiketh': { header: "Welcome to my brother's wedding",  name: "Nitiketh" }
+      };
+      var from = new URLSearchParams(window.location.search).get('from');
+      var p = from && personas[from];
+      if (p) {
+        document.getElementById('welcome-header').textContent       = p.header;
+        document.getElementById('welcome-signoff').textContent      = 'Warm regards,';
+        document.getElementById('welcome-signoff-name').textContent = p.name;
+      }
+    })();
+
     const audio = document.getElementById('bg-audio');
     const btn   = document.getElementById('mute-btn');
 
@@ -870,16 +900,24 @@
       }
     });
 
+    const iconSound = document.getElementById('icon-sound');
+    const iconMute  = document.getElementById('icon-mute');
+
+    function setMuteIcon(muted) {
+      iconSound.style.display = muted ? 'none' : 'block';
+      iconMute.style.display  = muted ? 'block' : 'none';
+    }
+
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       if (!started) {
         audio.play().catch(() => {});
         started = true;
         audio.muted = false;
-        btn.textContent = '🔊';
+        setMuteIcon(false);
       } else {
         audio.muted = !audio.muted;
-        btn.textContent = audio.muted ? '🔇' : '🔊';
+        setMuteIcon(audio.muted);
       }
     });
   </script>
