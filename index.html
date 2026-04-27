@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: 'Architype Albers';
+      src: url('Albers ArchiType Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -19,6 +26,16 @@
     .section {
       display: flex;
       min-height: 100vh;
+      position: relative;
+    }
+
+    .section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 10px solid #7b1a10;
+      pointer-events: none;
+      z-index: 1000;
     }
 
     /* ─── LEFT PANEL ──────────────────────────────────────── */
@@ -77,8 +94,8 @@
 
     /* Event name */
     .invite-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 1.9rem;
+      font-family: 'Architype Albers', 'Cinzel Decorative', serif;
+      font-size: 2.8rem;
       font-weight: 700;
       color: #7b1a10;
       margin-bottom: 28px;
@@ -355,10 +372,20 @@
       align-items: center;
       justify-content: center;
       padding: 80px 40px;
+      position: relative;
       background-image: url("svf texture background.svg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+    }
+
+    .section-rsvp::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 10px solid #7b1a10;
+      pointer-events: none;
+      z-index: 1000;
     }
 
     .rsvp-inner {
