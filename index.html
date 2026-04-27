@@ -297,7 +297,7 @@
       left: -3px;
       width: 16px;
       height: calc(100% + 20px);
-      background: #efe0c6;
+      background: #f2e5cd;
       z-index: 999;
       filter: url(#rough-left);
     }
@@ -378,12 +378,20 @@
         min-height: unset;
       }
 
+      .panel-image::before {
+        top: auto;
+        bottom: -3px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 16px;
+      }
+
       .panel-image {
         order: 1;
         flex: 0 0 100%;
         max-width: 100%;
-        height: 100vw;
-        min-height: 380px;
+        height: 140vw;
+        min-height: 520px;
       }
 
       .panel-text {
