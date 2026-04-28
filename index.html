@@ -42,10 +42,26 @@
       position: absolute;
       inset: 0;
       border: 10px solid #7b1a10;
-      box-shadow: inset 0 0 0 3px #c4a44a;
+      box-shadow: inset 0 0 0 5px #c4a44a;
       pointer-events: none;
       z-index: 1000;
     }
+
+    /* .section::before {
+      content: '';
+      position: absolute;
+      inset: 15px;
+      pointer-events: none;
+      z-index: 1001;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='5'%3E%3Cpolygon points='2.5,0.7 4.3,2.5 2.5,4.3 0.7,2.5' fill='%23f5f0e0'/%3E%3Ccircle cx='11' cy='2.5' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='5'%3E%3Cpolygon points='2.5,0.7 4.3,2.5 2.5,4.3 0.7,2.5' fill='%23f5f0e0'/%3E%3Ccircle cx='11' cy='2.5' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='16'%3E%3Cpolygon points='0.7,2.5 2.5,0.7 4.3,2.5 2.5,4.3' fill='%23f5f0e0'/%3E%3Ccircle cx='2.5' cy='11' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='16'%3E%3Cpolygon points='0.7,2.5 2.5,0.7 4.3,2.5 2.5,4.3' fill='%23f5f0e0'/%3E%3Ccircle cx='2.5' cy='11' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E");
+      background-size:     16px 5px,  16px 5px,  5px 16px,  5px 16px;
+      background-position: 0 0,       0 100%,    0 0,       100% 0;
+      background-repeat:   repeat-x,  repeat-x,  repeat-y,  repeat-y;
+    } */
 
     /* ─── LEFT PANEL ──────────────────────────────────────── */
     .panel-text {
@@ -297,7 +313,7 @@
       left: -3px;
       width: 16px;
       height: calc(100% + 20px);
-      background: #f2e5cd;
+      background: linear-gradient(to bottom, #f2e5cd, #ead9c0);
       z-index: 999;
       filter: url(#rough-left);
     }
@@ -423,10 +439,26 @@
       position: absolute;
       inset: 0;
       border: 10px solid #7b1a10;
-      box-shadow: inset 0 0 0 3px #c4a44a;
+      box-shadow: inset 0 0 0 5px #c4a44a;
       pointer-events: none;
       z-index: 1000;
     }
+
+    /* .section-rsvp::before {
+      content: '';
+      position: absolute;
+      inset: 15px;
+      pointer-events: none;
+      z-index: 1001;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='5'%3E%3Cpolygon points='2.5,0.7 4.3,2.5 2.5,4.3 0.7,2.5' fill='%23f5f0e0'/%3E%3Ccircle cx='11' cy='2.5' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='5'%3E%3Cpolygon points='2.5,0.7 4.3,2.5 2.5,4.3 0.7,2.5' fill='%23f5f0e0'/%3E%3Ccircle cx='11' cy='2.5' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='16'%3E%3Cpolygon points='0.7,2.5 2.5,0.7 4.3,2.5 2.5,4.3' fill='%23f5f0e0'/%3E%3Ccircle cx='2.5' cy='11' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='16'%3E%3Cpolygon points='0.7,2.5 2.5,0.7 4.3,2.5 2.5,4.3' fill='%23f5f0e0'/%3E%3Ccircle cx='2.5' cy='11' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E");
+      background-size:     16px 5px,  16px 5px,  5px 16px,  5px 16px;
+      background-position: 0 0,       0 100%,    0 0,       100% 0;
+      background-repeat:   repeat-x,  repeat-x,  repeat-y,  repeat-y;
+    } */
 
     .rsvp-inner {
       max-width: 540px;
@@ -844,24 +876,24 @@
         'VidhyaVarun': { header: "Welcome to our sister's wedding",  names: "Aishwarya & Kshitij", name: "Vidhya, Varun, Varsha" },
         'VikaManoj': { header: "Welcome to our sister's wedding",  names: "Aishwarya & Kshitij", name: "Viveka, Manoj, Niharika, Aadvik" },
         'ArvindShanthi': {
-          header: "You are invited to the wedding of our daughter",
+          header: "Cordially inviting you to the wedding of our daughter",
           names: "Aishwarya & Kshitij",
           greeting: "Dearest family & friends,",
-          body1: "Cordially inviting you to share in the most cherished milestone of our family — the wedding of our beloved daughter Aishwarya with Kshitij. Your presence means everything to us as we celebrate this sacred union.",
+          body1: "With hearts full of joy, we invite you to share in the most cherished milestone of our family - the wedding of our beloved daughter Aishwarya with Kshitij. Your presence means everything to us as we celebrate this sacred union.",
           body2: "Having you beside us as we witness this beautiful beginning fills us with immeasurable happiness. We feel truly blessed that our loved ones will be with us to shower the couple with your love and blessings.",
           body3: "Thank you for being a part of our family's joy. We look forward to celebrating with you.",
           signoff: "With love and blessings,",
           name: "Shanthi and Arvind"
         },
         'MarutiSurekha': {
-          header: "You are invited to the wedding of our son",
+          header: "Cordially inviting you to the wedding of our son",
           names: "Kshitij & Aishwarya",
           greeting: "Dearest family & friends,",
-          body1: "Cordially inviting you to join us in celebrating the wedding of our beloved son Kshitij with Aishwarya. Your presence is our greatest blessing as we come together for this joyous occasion.",
+          body1: "With hearts overflowing with joy, we invite you to join us in celebrating the wedding of our beloved son Kshitij with Aishwarya. Your presence is our greatest blessing as we come together for this joyous occasion.",
           body2: "Being surrounded by our cherished family and friends fills us with profound happiness. We feel incredibly blessed to share this beautiful journey with those we hold most dear.",
           body3: "Thank you for your love, warmth, and blessings as we celebrate this wonderful new chapter.",
           signoff: "With love and blessings,",
-          name: "Surekha and Maruti Vejre"
+          name: "Surekha & Maruti"
         },
       };
       var from = new URLSearchParams(window.location.search).get('from');
