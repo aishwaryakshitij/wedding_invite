@@ -634,7 +634,7 @@
   <!-- ══════════════════════════════════════════════════════ -->
   <!-- Section 1b · Formal invite — Vejre family             -->
   <!-- ══════════════════════════════════════════════════════ -->
-  <section class="section section-page1">
+  <section class="section section-page1" id="physical-vejre" style="display:none;">
     <div class="panel-text" style="padding-left:28px; padding-right:28px;">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner" style="max-width:520px;">
@@ -659,7 +659,7 @@
   <!-- ══════════════════════════════════════════════════════ -->
   <!-- Section 1c · Formal invite — Arvind family            -->
   <!-- ══════════════════════════════════════════════════════ -->
-  <section class="section section-page1">
+  <section class="section section-page1" id="physical-arvind" style="display:none;">
     <div class="panel-text" style="padding-left:28px; padding-right:28px;">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner" style="max-width:520px;">
@@ -950,6 +950,10 @@
         },
       };
       var from = new URLSearchParams(window.location.search).get('from');
+      if (from === 'physical') {
+        document.getElementById('physical-vejre').style.display = 'flex';
+        document.getElementById('physical-arvind').style.display = 'flex';
+      }
       var p = from && personas[from];
       if (p) {
         document.getElementById('welcome-header').textContent       = p.header;
