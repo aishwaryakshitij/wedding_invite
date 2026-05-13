@@ -146,12 +146,12 @@
     }
 
     .invite-date .month {
-      font-size: 0.8rem;
+      font-size: 0.95rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: #7b1a10;
       margin-bottom: 8px;
-      font-weight: 700;
+      font-weight: 900; -webkit-text-stroke: 0.4px currentColor;
     }
 
     .invite-date .day-row {
@@ -159,16 +159,16 @@
       align-items: center;
       justify-content: center;
       gap: 16px;
-      font-size: 0.85rem;
+      font-size: 1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #7b1a10;
-      font-weight: 700;
+      font-weight: 900; -webkit-text-stroke: 0.4px currentColor;
     }
 
     .invite-date .day-row .date-num {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 2.4rem;
+      font-weight: 900;
       letter-spacing: 0;
       line-height: 1;
     }
@@ -180,11 +180,12 @@
     }
 
     .invite-date .year {
-      font-size: 0.85rem;
+      font-size: 1rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-top: 8px;
       color: #7b1a10;
+      font-weight: 900; -webkit-text-stroke: 0.4px currentColor;
     }
 
     /* Venue */
@@ -620,8 +621,14 @@
         <p id="welcome-body-3" class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
           Thank you for your love, warmth, and blessings as we celebrate together.
         </p>
-        <p id="welcome-signoff" class="invite-body" style="margin-bottom:2px; text-align:right; font-weight:700; line-height:1.5;">With all our love,</p>
-        <p id="welcome-signoff-name" class="invite-name" style="color:#b8860b; text-align:right;">Aishwarya &amp; Kshitij</p>
+        <div style="margin-top:32px; padding-top:20px; border-top:1px dotted rgba(123,26,16,0.35); width:100%;">
+          <p class="invite-body" style="font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; font-style:normal; margin-bottom:10px; text-align:center; color:#b8860b;">With best compliments from</p>
+          <p class="invite-body" style="font-size:1rem; font-style:italic; text-align:center; line-height:1.9; margin-bottom:0;">
+            Sharan Srinivas, Anitha &amp; Santharam,<br />
+            Deepa &amp; Saravana, Viveka &amp; Manoj,<br />
+            Vidhya &amp; Varun, Nihu &amp; Aadvik, Varsha
+          </p>
+        </div>
       </div>
     </div>
     <div class="panel-image">
@@ -697,11 +704,11 @@
           <div class="month">August</div>
           <div class="day-row">
             <span class="dotted-line"></span>
-            <span>Friday</span>
+            <span>Saturday</span>
             <span class="dotted-line"></span>
-            <span class="date-num">28</span>
+            <span class="date-num">29</span>
             <span class="dotted-line"></span>
-            <span>At 11 AM</span>
+            <span>At 9 AM</span>
             <span class="dotted-line"></span>
           </div>
           <div class="year">2026</div>
@@ -720,14 +727,14 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════ -->
-  <!-- Section 3 · Haldi & Mehendi                           -->
+  <!-- Section 3 · Haldi                                     -->
   <!-- ══════════════════════════════════════════════════════ -->
   <section class="section section-unified">
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
         <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
-        <h2 class="invite-title">Haldi &amp; Mehendi</h2>
+        <h2 class="invite-title">Haldi</h2>
         <p class="invite-body">
           A ceremony of golden blessings and joyful laughter. Come paint us in turmeric and love as we prepare for the sacred union ahead.
         </p>
@@ -739,7 +746,7 @@
             <span class="dotted-line"></span>
             <span class="date-num">29</span>
             <span class="dotted-line"></span>
-            <span>At 10 AM</span>
+            <span>At 12 PM</span>
             <span class="dotted-line"></span>
           </div>
           <div class="year">2026</div>
@@ -751,9 +758,43 @@
       </div>
     </div>
     <div class="panel-image">
-      <!-- <div class="panel-top-edge"></div> -->
-      <!-- <div class="panel-bottom-edge"></div> -->
-      <img src="images_final/haldiii.png" alt="Haldi &amp; Mehendi" />
+      <img src="images_final/haldiii.png" alt="Haldi" />
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- Section 4 · Mehendi                                   -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="panel-text">
+      <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
+      <div class="panel-text-inner">
+        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <h2 class="invite-title">Mehendi</h2>
+        <p class="invite-body">
+          An evening of intricate artistry and timeless traditions. Let the henna tell stories of love and new beginnings as we celebrate together.
+        </p>
+        <div class="invite-date">
+          <div class="month">August</div>
+          <div class="day-row">
+            <span class="dotted-line"></span>
+            <span>Sunday</span>
+            <span class="dotted-line"></span>
+            <span class="date-num">30</span>
+            <span class="dotted-line"></span>
+            <span>At 11 AM</span>
+            <span class="dotted-line"></span>
+          </div>
+          <div class="year">2026</div>
+        </div>
+        <div class="invite-venue">
+          <p class="at">at</p>
+          <p class="place" style="font-weight:700;">East Beekman Place<br />Denver, CO</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel-image">
+      <img src="images_final/Haldi portrait 2.png" alt="Mehendi" />
     </div>
   </section>
 
