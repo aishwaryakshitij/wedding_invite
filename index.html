@@ -621,12 +621,14 @@
         <p id="welcome-body-3" class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
           Thank you for your love, warmth, and blessings as we celebrate together.
         </p>
-        <div style="margin-top:32px; padding-top:20px; border-top:1px dotted rgba(123,26,16,0.35); width:100%;">
+        <p id="welcome-signoff" class="invite-body" style="margin-bottom:2px; text-align:right; font-weight:700; line-height:1.5;">With all our love,</p>
+        <p id="welcome-signoff-name" class="invite-name" style="color:#b8860b; text-align:right;">Aishwarya &amp; Kshitij</p>
+        <div id="compliments-section" style="margin-top:32px; padding-top:20px; border-top:1px dotted rgba(123,26,16,0.35); width:100%;">
           <p class="invite-body" style="font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; font-style:normal; margin-bottom:10px; text-align:center; color:#b8860b;">With best compliments from</p>
-          <p class="invite-body" style="font-size:1rem; font-style:italic; text-align:center; line-height:1.9; margin-bottom:0;">
-            Sharan Srinivas, Anitha &amp; Santharam,<br />
+          <p id="compliments-names" class="invite-body" style="font-size:1rem; font-style:italic; text-align:center; line-height:1.9; margin-bottom:0;">
+            Arvind &amp; Shanthi, Sharan Srinivas, Anitha &amp; Santharam,<br />
             Deepa &amp; Saravana, Viveka &amp; Manoj,<br />
-            Vidhya &amp; Varun, Nihu &amp; Aadvik, Varsha
+            Vidhya &amp; Varun, Niharika &amp; Aadvik, Varsha
           </p>
         </div>
       </div>
@@ -746,7 +748,7 @@
             <span class="dotted-line"></span>
             <span class="date-num">29</span>
             <span class="dotted-line"></span>
-            <span>At 12:30 PM</span>
+            <span>12:30 PM Onwards</span>
             <span class="dotted-line"></span>
           </div>
           <div class="year">2026</div>
@@ -961,14 +963,14 @@
     // URL-based personalisation (?from=Name)
     (function () {
       var personas = {
-        'Arvind':   { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Arvind Kumar" },
-        'Shanthi':  { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", name: "Jeya Shanthi" },
-        'Sharan':   { header: "Welcome to my sister's wedding",   names: "Aishwarya & Kshitij", name: "Sharan Srinivas" },
-        'Maruti':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Maruti Vejre" },
-        'Surekha':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", name: "Surekha Vejre" },
-        'Nitiketh': { header: "Welcome to my brother's wedding",  names: "Kshitij & Aishwarya", name: "Nitiketh Vejre" },
-        'VidhyaVarun': { header: "Welcome to our sister's wedding",  names: "Aishwarya & Kshitij", name: "Vidhya, Varun, Varsha" },
-        'VikaManoj': { header: "Welcome to our sister's wedding",  names: "Aishwarya & Kshitij", name: "Viveka, Manoj, Niharika, Aadvik" },
+        'Arvind':   { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Arvind Kumar", compliments: "Jeya Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
+        'Shanthi':  { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Jeya Shanthi", compliments: "Arvind Kumar, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
+        'Sharan':   { header: "Welcome to my sister's wedding",   names: "Aishwarya & Kshitij", signoff: "With love,", name: "Sharan", compliments: "Arvind & Shanthi, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
+        'Maruti':   { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", signoff: "With love,", name: "Maruti Vejre", hideCompliments: true },
+        'Surekha':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", signoff: "With love,", name: "Surekha Vejre", hideCompliments: true },
+        'Nitiketh': { header: "Welcome to my brother's wedding",  names: "Kshitij & Aishwarya", signoff: "With love,", name: "Nitiketh", hideCompliments: true },
+        'VidhyaVarun': { header: "Welcome to our sister's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Vidhya, Varun & Varsha", compliments: "Arvind & Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Niharika & Aadvik, Varsha" },
+        'VikaManoj':  { header: "Welcome to our sister's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Viveka, Manoj, Niharika & Aadvik", compliments: "Arvind & Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Vidhya & Varun, Varsha" },
         'ArvindShanthi': {
           header: "Cordially inviting you to the wedding of our daughter",
           names: "Aishwarya & Kshitij",
@@ -1005,6 +1007,11 @@
         if (p.body1)    document.getElementById('welcome-body-1').textContent   = p.body1;
         if (p.body2)    document.getElementById('welcome-body-2').textContent   = p.body2;
         if (p.body3)    document.getElementById('welcome-body-3').textContent   = p.body3;
+        if (p.hideCompliments) {
+          document.getElementById('compliments-section').style.display = 'none';
+        } else if (p.compliments) {
+          document.getElementById('compliments-names').textContent = p.compliments;
+        }
       }
     })();
 
