@@ -626,7 +626,7 @@
         <div id="compliments-section" style="margin-top:32px; padding-top:20px; border-top:1px dotted rgba(123,26,16,0.35); width:100%;">
           <p class="invite-body" style="font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; font-style:normal; margin-bottom:10px; text-align:center; color:#b8860b;">With best compliments from</p>
           <p id="compliments-names" class="invite-body" style="font-size:1rem; font-style:italic; text-align:center; line-height:1.9; margin-bottom:0;">
-            Arvind &amp; Shanthi, Sharan Srinivas, Anitha &amp; Santharam,<br />
+            Shanthi &amp; Arvind, Sharan Srinivas, Anitha &amp; Santharam,<br />
             Deepa &amp; Saravana, Viveka &amp; Manoj,<br />
             Vidhya &amp; Varun, Niharika &amp; Aadvik, Varsha
           </p>
@@ -963,30 +963,30 @@
     // URL-based personalisation (?from=Name)
     (function () {
       var personas = {
-        'Arvind':   { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Arvind Kumar", compliments: "Jeya Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
-        'Shanthi':  { header: "Welcome to my daughter's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Jeya Shanthi", compliments: "Arvind Kumar, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
-        'Sharan':   { header: "Welcome to my sister's wedding",   names: "Aishwarya & Kshitij", signoff: "With love,", name: "Sharan", compliments: "Arvind & Shanthi, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
-        'Maruti':   { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", signoff: "With love,", name: "Maruti Vejre", hideCompliments: true },
-        'Surekha':  { header: "Welcome to my son's wedding",      names: "Kshitij & Aishwarya", signoff: "With love,", name: "Surekha Vejre", hideCompliments: true },
-        'Nitiketh': { header: "Welcome to my brother's wedding",  names: "Kshitij & Aishwarya", signoff: "With love,", name: "Nitiketh", hideCompliments: true },
-        'MaruthiSurekha': { header: "Welcome to our son's wedding", names: "Kshitij & Aishwarya", signoff: "With love,", name: "Maruthi and Surekha Vejre", hideCompliments: true },
-        'NitikethPooja':  { header: "Welcome to our brother's wedding", names: "Kshitij & Aishwarya", signoff: "With love,", name: "Nitiketh and Pooja Vejre", hideCompliments: true },
-        'VidhyaVarun': { header: "Welcome to our sister's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Vidhya, Varun & Varsha", compliments: "Arvind & Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Niharika & Aadvik, Varsha" },
-        'VikaManoj':  { header: "Welcome to our sister's wedding", names: "Aishwarya & Kshitij", signoff: "With love,", name: "Viveka, Manoj, Niharika & Aadvik", compliments: "Arvind & Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Vidhya & Varun, Varsha" },
+        'Arvind':   { header: "Cordially inviting you to the wedding of our daughter", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Arvind Kumar", compliments: "Jeya Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
+        'Shanthi':  { header: "Cordially inviting you to the wedding of our daughter", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Jeya Shanthi", compliments: "Arvind Kumar, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
+        'Sharan':   { header: "Cordially inviting you to the wedding of our sister",   names: "Aishwarya with Kshitij", signoff: "With love,", name: "Sharan", compliments: "Shanthi & Arvind, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
+        'Maruti':   { header: "Cordially inviting you to the wedding of our son",      names: "Kshitij with Aishwarya", signoff: "With love,", name: "Maruti Vejre", hideCompliments: true },
+        'Surekha':  { header: "Cordially inviting you to the wedding of our son",      names: "Kshitij with Aishwarya", signoff: "With love,", name: "Surekha Vejre", hideCompliments: true },
+        'Nitiketh': { header: "Cordially inviting you to the wedding of our brother",  names: "Kshitij with Aishwarya", signoff: "With love,", name: "Nitiketh", hideCompliments: true },
+        'MaruthiSurekha': { header: "Cordially inviting you to the wedding of our son", names: "Kshitij with Aishwarya", signoff: "With love,", name: "Maruthi and Surekha Vejre", hideCompliments: true },
+        'NitikethPooja':  { header: "Cordially inviting you to the wedding of our brother", names: "Kshitij with Aishwarya", signoff: "With love,", name: "Nitiketh and Pooja Vejre", hideCompliments: true },
+        'VidhyaVarun': { header: "Cordially inviting you to the wedding of our sister", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Vidhya, Varun & Varsha", compliments: "Shanthi & Arvind, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Niharika & Aadvik, Varsha" },
+        'VikaManoj':  { header: "Cordially inviting you to the wedding of our sister", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Viveka, Manoj, Niharika & Aadvik", compliments: "Shanthi & Arvind, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Vidhya & Varun, Varsha" },
         'ArvindShanthi': {
           header: "Cordially inviting you to the wedding of our daughter",
-          names: "Aishwarya & Kshitij",
+          names: "Aishwarya with Kshitij",
           greeting: "Dearest family & friends,",
           body1: "With hearts full of joy, we invite you to share in the most cherished milestone of our family - the wedding of our beloved daughter Aishwarya with Kshitij. Your presence means everything to us as we celebrate this sacred union.",
           body2: "Having you beside us as we witness this beautiful beginning fills us with immeasurable happiness. We feel truly blessed that our loved ones will be with us to shower the couple with your love and blessings.",
           body3: "Thank you for being a part of our family's joy. We look forward to celebrating with you.",
-          signoff: "With love and blessings,",
+          signoff: "With love,",
           name: "Shanthi and Arvind",
           compliments: "Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha"
         },
         'MarutiSurekha': {
           header: "Cordially inviting you to the wedding of our son",
-          names: "Kshitij & Aishwarya",
+          names: "Kshitij with Aishwarya",
           greeting: "Dearest family & friends,",
           body1: "With hearts overflowing with joy, we invite you to join us in celebrating the wedding of our beloved son Kshitij with Aishwarya. Your presence is our greatest blessing as we come together for this joyous occasion.",
           body2: "Being surrounded by our cherished family and friends fills us with profound happiness. We feel incredibly blessed to share this beautiful journey with those we hold most dear.",
