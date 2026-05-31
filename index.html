@@ -976,7 +976,7 @@
     <div class="rsvp-inner">
       <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
       <h2 class="invite-title" style="margin-bottom:16px;">RSVP</h2>
-      <p class="invite-body" style="margin-bottom:0;">
+      <p id="rsvp-deadline" class="invite-body" style="margin-bottom:0;">
         Kindly respond by <strong>August 1st, 2026</strong>
       </p>
 
@@ -1182,14 +1182,15 @@
       const data = new URLSearchParams({
         name:      form.name.value,
         attending: form.attending.value,
-        events:    checkedEvents,
         guests:    form.guests.value,
         message:   form.message.value,
+        events:    checkedEvents,
       });
 
       try {
         await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data });
         form.style.display = 'none';
+        document.getElementById('rsvp-deadline').style.display = 'none';
         document.getElementById('rsvp-success').style.display = 'block';
       } catch {
         btn.disabled = false;
