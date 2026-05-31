@@ -11,6 +11,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Carattere&family=Eagle+Lake&family=Ephesis&display=swap" rel="stylesheet" />
   <style>
+    @property --shine-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes border-shine {
+      to { --shine-angle: 360deg; }
+    }
+
     @font-face {
       font-family: 'Architype Albers';
       src: url('Albers ArchiType Regular.otf') format('opentype');
@@ -50,7 +60,32 @@
       z-index: 1000;
     }
 
-    /* .section::before {
+    .section::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      padding: 5px;
+      background: conic-gradient(from var(--shine-angle),
+        transparent 0deg,
+        rgba(255, 252, 210, 0) 6deg,
+        rgba(255, 255, 230, 0.95) 13deg,
+        rgba(255, 250, 200, 0) 20deg,
+        transparent 30deg
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: 1002;
+      animation: border-shine 12s linear infinite;
+    }
+
+    /* .section-diamond-border {
       content: '';
       position: absolute;
       inset: 15px;
@@ -91,7 +126,7 @@
       aspect-ratio: 1;
       top: 0; left: 0; right: 0; bottom: 0;
       margin: auto;
-      opacity: 1;
+      opacity: 0.85;
       animation: spin-rangoli 60s linear infinite;
       pointer-events: none;
     }
@@ -113,10 +148,16 @@
     }
 
     /* Ganesh / top icon */
-    .invite-icon {
+    .invite-icon-wrap {
+      position: relative;
       display: block;
-      margin: 0 auto 5px;
       width: 95px;
+      margin: 0 auto 5px;
+    }
+
+.invite-icon {
+      display: block;
+      width: 100%;
       height: auto;
     }
 
@@ -151,7 +192,7 @@
       text-transform: uppercase;
       color: #7b1a10;
       margin-bottom: 8px;
-      font-weight: 900; -webkit-text-stroke: 0.4px currentColor;
+      font-weight: 900; -webkit-text-stroke: 0.8px currentColor;
     }
 
     .invite-date .day-row {
@@ -163,7 +204,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #7b1a10;
-      font-weight: 900; -webkit-text-stroke: 0.4px currentColor;
+      font-weight: 900; -webkit-text-stroke: 0.8px currentColor;
     }
 
     .invite-date .day-row .date-num {
@@ -185,7 +226,7 @@
       text-transform: uppercase;
       margin-top: 8px;
       color: #7b1a10;
-      font-weight: 900; -webkit-text-stroke: 0.4px currentColor;
+      font-weight: 900; -webkit-text-stroke: 0.8px currentColor;
     }
 
     /* Venue */
@@ -194,14 +235,16 @@
       font-size: 1rem;
       margin-bottom: 6px;
       color: #7b1a10;
-      font-weight: 700;
+      font-weight: 900;
+      -webkit-text-stroke: 0.8px currentColor;
     }
 
     .invite-venue .place {
       font-size: 1rem;
       line-height: 1.6;
       color: #7b1a10;
-      font-weight: 700;
+      font-weight: 900;
+      -webkit-text-stroke: 0.8px currentColor;
     }
 
     /* ─── UNIFIED BG SECTIONS (Haldi, Reception) ────────── */
@@ -494,6 +537,8 @@
       padding: 10px 2px;
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.1rem;
+      font-weight: 900;
+      -webkit-text-stroke: 0.5px currentColor;
       color: #7b1a10;
       outline: none;
       transition: border-color 0.2s;
@@ -509,6 +554,7 @@
     .rsvp-field textarea::placeholder {
       color: rgba(123, 26, 16, 0.45);
       font-style: italic;
+      font-weight: 700;
     }
 
     .rsvp-field select option {
@@ -534,6 +580,8 @@
       cursor: pointer;
       font-size: 1rem;
       font-style: italic;
+      font-weight: 900;
+      -webkit-text-stroke: 0.5px currentColor;
       color: #7b1a10;
     }
 
@@ -551,6 +599,52 @@
 
     #guest-count-field {
       transition: opacity 0.3s;
+    }
+
+    .rsvp-events-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #7b1a10;
+      font-style: normal;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .rsvp-checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+      width: 100%;
+    }
+
+    .rsvp-checkbox-group label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-style: italic;
+      color: #7b1a10;
+      line-height: 1.4;
+    }
+
+    .rsvp-checkbox-group input[type="checkbox"] {
+      accent-color: #7b1a10;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .rsvp-event-note {
+      font-size: 0.82rem;
+      font-style: normal;
+      color: #b8860b;
+      font-weight: 700;
+      margin-left: 26px;
+      margin-top: -6px;
     }
 
     .rsvp-submit {
@@ -608,22 +702,20 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
-        <p id="welcome-header" style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; margin-bottom:12px; font-weight:700;">Welcome to the wedding of</p>
-        <p id="welcome-names" class="invite-name" style="margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</p>
-        <p id="welcome-greeting" class="invite-body" style="margin-top:50px; margin-bottom:6px; text-align:left; font-weight:700; line-height:1.5;">Dearest family &amp; friends,</p>
-        <p id="welcome-body-1" class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
-          As we gather to celebrate this joyous occasion, we extend our heartfelt gratitude for being a part of these cherished moments. Your presence adds so much love and meaning to our celebration, making it truly unforgettable.
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
+        <p id="welcome-header" style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; margin-bottom:12px; font-weight:700;">Cordially inviting you to our wedding</p>
+        <p id="welcome-names" class="invite-name" style="display:none; margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</p>
+        <p id="welcome-greeting" class="invite-body" style="margin-top:50px; margin-bottom:10px; text-align:left; font-weight:700; line-height:1.5; font-size:1.35rem; color:#b8860b; font-style:italic;">To our beloved family and friends,</p>
+        <p id="welcome-body-1" class="invite-body" style="margin-bottom:20px; text-align:left; font-weight:700; line-height:1.9; font-size:1.2rem;">
+          Every beautiful story is shaped by the people who walk beside us, and ours is no different. As we begin this new chapter together, we are so grateful for the love and countless memories that have brought us here.
         </p>
-        <p id="welcome-body-2" class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
-          Being surrounded by those we hold dear fills our hearts with happiness, and we feel incredibly blessed to share this beautiful journey with you.
+        <p id="welcome-body-2" class="invite-body" style="margin-bottom:20px; text-align:left; font-weight:700; line-height:1.9; font-size:1.2rem;">
+          Having you with us makes this celebration truly complete, and we feel blessed to share these special moments with the people we cherish most. We look forward to celebrating, laughing, dancing, and creating unforgettable memories together.
         </p>
-        <p id="welcome-body-3" class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;">
-          Thank you for your love, warmth, and blessings as we celebrate together.
-        </p>
-        <p id="welcome-signoff" class="invite-body" style="margin-bottom:2px; text-align:right; font-weight:700; line-height:1.5;">With all our love,</p>
+        <p id="welcome-body-3" class="invite-body" style="margin-bottom:8px; text-align:left; font-weight:700; line-height:1.5;"></p>
+        <p id="welcome-signoff" class="invite-body" style="margin-bottom:2px; text-align:right; font-weight:700; line-height:1.5;">With love,</p>
         <p id="welcome-signoff-name" class="invite-name" style="color:#b8860b; text-align:right;">Aishwarya &amp; Kshitij</p>
-        <div id="compliments-section" style="margin-top:32px; padding-top:20px; border-top:1px dotted rgba(123,26,16,0.35); width:100%;">
+        <div id="compliments-section" style="display:none; margin-top:32px; padding-top:20px; border-top:1px dotted rgba(123,26,16,0.35); width:100%;">
           <p class="invite-body" style="font-size:0.85rem; letter-spacing:0.12em; text-transform:uppercase; font-style:normal; margin-bottom:10px; text-align:center; color:#b8860b;">With best compliments from</p>
           <p id="compliments-names" class="invite-body" style="font-size:1rem; font-style:italic; text-align:center; line-height:1.9; margin-bottom:0;">
             Shanthi &amp; Arvind, Sharan Srinivas, Anitha &amp; Santharam,<br />
@@ -647,7 +739,7 @@
     <div class="panel-text" style="padding-left:28px; padding-right:28px;">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner" style="max-width:520px;">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <img src="images_final/slogan.svg" alt="Sloka" style="display:block; margin:-40px auto 20px; width:100%; max-width:200px; height:auto; filter:sepia(1) saturate(6) hue-rotate(320deg) brightness(0.5);" />
         <div style="font-size:102%;">
         <p class="invite-body" style="text-align:center; margin-bottom:6px; line-height:1.6; font-family:'Cormorant Garamond', Georgia, serif; font-size:1.35rem; font-style:normal; font-weight:700;">Mr. Maruti Vejre and Mrs. Surekha Vejre</p>
@@ -672,7 +764,7 @@
     <div class="panel-text" style="padding-left:28px; padding-right:28px;">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner" style="max-width:520px;">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <img src="images_final/slogan.svg" alt="Sloka" style="display:block; margin:-40px auto 20px; width:100%; max-width:200px; height:auto; filter:sepia(1) saturate(6) hue-rotate(320deg) brightness(0.5);" />
         <div style="font-size:102%;">
         <p class="invite-body" style="text-align:center; margin-bottom:6px; line-height:1.6; font-family:'Cormorant Garamond', Georgia, serif; font-size:1.35rem; font-style:normal; font-weight:700;">Mr. Arvind Kumar and Mrs. Jeya Shanti</p>
@@ -697,10 +789,10 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <h2 class="invite-title">Sakharpuda</h2>
         <p class="invite-body">
-          With the blessings of our families, we joyfully invite you to celebrate the Sakharpuda ceremony marking the beginning of our forever.
+          The first step of a beautiful journey - where two families come together, exchange their blessings, and welcome a new bond with open hearts. The Sakharpuda is a tradition as sweet as the occasion itself, and we wouldn't want to celebrate it without you by our side.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
@@ -735,10 +827,10 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <h2 class="invite-title">Haldi</h2>
         <p class="invite-body">
-          A ceremony of golden blessings and joyful laughter. Come paint us in turmeric and love as we prepare for the sacred union ahead.
+          A sacred tradition passed down through generations - turmeric applied with love, blessings offered with joy, and laughter that fills every corner. Come be part of this golden ritual as we prepare for the auspicious days ahead.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
@@ -757,6 +849,7 @@
           <p class="at">at</p>
           <p class="place" style="font-weight:700;">East Beekman Place<br />Denver, Colorado, USA</p>
         </div>
+        <p class="invite-body" style="margin-top:24px; margin-bottom:0; font-size:0.95rem; color:#b8860b; font-style:normal; letter-spacing:0.04em;">Please wear yellow!</p>
       </div>
     </div>
     <div class="panel-image">
@@ -771,10 +864,10 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <h2 class="invite-title">Mehendi</h2>
         <p class="invite-body">
-          An evening of intricate artistry and timeless traditions. Let the henna tell stories of love and new beginnings as we celebrate together.
+          As the henna takes shape, so does the anticipation of a new chapter beginning. An afternoon of intricate artistry, old traditions, and the warmth of loved ones gathered close - we invite you to share in this timeless celebration with us.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
@@ -807,10 +900,10 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <h2 class="invite-title">Wedding</h2>
         <p class="invite-body">
-          Join us as we celebrate our sacred Muhurtham — the blessed moment two souls are bound by fire, family, and the eternal promise of a lifetime together.
+          Bound by the sacred fire, witnessed by family, and blessed by those who have walked before us - the Muhurtham is the heart of it all. We are deeply honoured to have you present as we take our vows and begin this blessed union.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
@@ -845,10 +938,10 @@
     <div class="panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
-        <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+        <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <h2 class="invite-title">Reception</h2>
         <p class="invite-body">
-          The celebration continues! Join us for an evening of music, dance, and endless joy as families come together to toast the newlyweds and revel in love.
+          The ceremonies are complete and our hearts are full - now it's time to come together and celebrate. Join us for an evening of music, dance, and togetherness as two families become one.
         </p>
         <div class="invite-date">
           <div class="month">August</div>
@@ -881,7 +974,7 @@
   <!-- ══════════════════════════════════════════════════════ -->
   <section class="section-rsvp">
     <div class="rsvp-inner">
-      <img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" />
+      <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
       <h2 class="invite-title" style="margin-bottom:16px;">RSVP</h2>
       <p class="invite-body" style="margin-bottom:0;">
         Kindly respond by <strong>August 1st, 2026</strong>
@@ -893,11 +986,6 @@
           <input type="text" name="name" placeholder="Your Full Name" required />
         </div>
 
-        <div class="rsvp-field">
-          <input type="email" name="email" placeholder="Email Address" required />
-        </div>
-
-        <hr class="rsvp-divider" />
 
         <div class="rsvp-field" style="text-align:center;">
           <div class="rsvp-radio-group">
@@ -908,6 +996,34 @@
             <label>
               <input type="radio" name="attending" value="Regretfully Declines" />
               Regretfully Declines
+            </label>
+          </div>
+        </div>
+
+        <hr class="rsvp-divider" />
+
+        <div class="rsvp-field" id="events-field">
+          <p class="rsvp-events-label">Events I'll be attending</p>
+          <div class="rsvp-checkbox-group">
+            <label>
+              <input type="checkbox" name="events" value="Sakharpuda" checked />
+              Sakharpuda <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Sat, Aug 29 · 11:35 AM)</span>
+            </label>
+            <label>
+              <input type="checkbox" name="events" value="Haldi" checked />
+              Haldi <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Sat, Aug 29 · 12:30 PM onwards)</span>
+            </label>
+            <label>
+              <input type="checkbox" name="events" value="Mehendi" checked />
+              Mehendi <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Sun, Aug 30 · 11 AM)</span>
+            </label>
+            <label>
+              <input type="checkbox" name="events" value="Wedding" checked />
+              Wedding <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Mon, Aug 31 · 10 AM)</span>
+            </label>
+            <label>
+              <input type="checkbox" name="events" value="Reception" checked />
+              Reception <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Mon, Aug 31 · 5 PM)</span>
             </label>
           </div>
         </div>
@@ -943,7 +1059,7 @@
 
   <!-- ── Background music ── -->
   <audio id="bg-audio" loop>
-    <source src="bgm3.mp3" type="audio/mpeg" />
+    <source src="final audio.mp3" type="audio/mpeg" />
   </audio>
 
   <button id="mute-btn" title="Mute / Unmute">
@@ -963,23 +1079,38 @@
     // URL-based personalisation (?from=Name)
     (function () {
       var personas = {
-        'Arvind':   { header: "Cordially inviting you to the wedding of our daughter", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Arvind Kumar", compliments: "Jeya Shanthi, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
-        'Shanthi':  { header: "Cordially inviting you to the wedding of our daughter", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Jeya Shanthi", compliments: "Arvind Kumar, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
-        'Sharan':   { header: "Cordially inviting you to the wedding of our sister",   names: "Aishwarya with Kshitij", signoff: "With love,", name: "Sharan", compliments: "Shanthi & Arvind, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha" },
-        'Maruti':   { header: "Cordially inviting you to the wedding of our son",      names: "Kshitij with Aishwarya", signoff: "With love,", name: "Maruti Vejre", hideCompliments: true },
-        'Surekha':  { header: "Cordially inviting you to the wedding of our son",      names: "Kshitij with Aishwarya", signoff: "With love,", name: "Surekha Vejre", hideCompliments: true },
-        'Nitiketh': { header: "Cordially inviting you to the wedding of our brother",  names: "Kshitij with Aishwarya", signoff: "With love,", name: "Nitiketh", hideCompliments: true },
+        'Sharan': {
+          header: "Cordially inviting you to the wedding of my sister",
+          names: "Aishwarya with Kshitij",
+          greeting: "Dear Family & Friends,",
+          body1: "As my sister begins this exciting new chapter of her life with Kshitij, I am delighted to invite you to join us in celebrating their wedding.",
+          body2: "This is a day filled with happiness for our family, and it would mean a great deal to have you with us to share in the celebrations and bless the couple as they begin their journey together.",
+          body3: "I look forward to celebrating with you.",
+          signoff: "With love,",
+          name: "Sharan Srinivas",
+          hideCompliments: true
+        },
         'MaruthiSurekha': { header: "Cordially inviting you to the wedding of our son", names: "Kshitij with Aishwarya", signoff: "With love,", name: "Maruthi and Surekha Vejre", hideCompliments: true },
-        'NitikethPooja':  { header: "Cordially inviting you to the wedding of our brother", names: "Kshitij with Aishwarya", signoff: "With love,", name: "Nitiketh and Pooja Vejre", hideCompliments: true },
+        'NitikethPooja': {
+          header: "Cordially inviting you to the wedding of my brother",
+          names: "Kshitij with Aishwarya",
+          greeting: "Dear Family & Friends,",
+          body1: "As Kshitij begins this wonderful new chapter with Aishwarya, we are delighted to invite you to join us in celebrating their wedding.",
+          body2: "This is a joyful occasion for our family, and it would mean so much to have you with us as we celebrate their love, happiness, and the beginning of a lifetime together.",
+          body3: "We look forward to sharing this special celebration with you and creating cherished memories together.",
+          signoff: "With love,",
+          name: "Pooja and Nitiketh",
+          hideCompliments: true
+        },
         'VidhyaVarun': { header: "Cordially inviting you to the wedding of our sister", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Vidhya, Varun & Varsha", compliments: "Shanthi & Arvind, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Niharika & Aadvik, Varsha" },
         'VikaManoj':  { header: "Cordially inviting you to the wedding of our sister", names: "Aishwarya with Kshitij", signoff: "With love,", name: "Viveka, Manoj, Niharika & Aadvik", compliments: "Shanthi & Arvind, Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Vidhya & Varun, Varsha" },
         'ArvindShanthi': {
           header: "Cordially inviting you to the wedding of our daughter",
           names: "Aishwarya with Kshitij",
-          greeting: "Dearest family & friends,",
-          body1: "With hearts full of joy, we invite you to share in the most cherished milestone of our family - the wedding of our beloved daughter Aishwarya with Kshitij. Your presence means everything to us as we celebrate this sacred union.",
-          body2: "Having you beside us as we witness this beautiful beginning fills us with immeasurable happiness. We feel truly blessed that our loved ones will be with us to shower the couple with your love and blessings.",
-          body3: "Thank you for being a part of our family's joy. We look forward to celebrating with you.",
+          greeting: "Dear Family & Friends,",
+          body1: "With immense joy, we invite you to celebrate the wedding of our beloved daughter, Aishwarya, as she begins this beautiful new chapter with Kshitij.",
+          body2: "This is a moment our family has long looked forward to, and it would mean so much to have you with us as we celebrate, share our happiness, and bless the couple on their journey ahead.",
+          body3: "Your presence and blessings will make this occasion even more special, and we look forward to creating wonderful memories together.",
           signoff: "With love,",
           name: "Shanthi and Arvind",
           compliments: "Sharan Srinivas, Anitha & Santharam, Deepa & Saravana, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha"
@@ -987,12 +1118,13 @@
         'MarutiSurekha': {
           header: "Cordially inviting you to the wedding of our son",
           names: "Kshitij with Aishwarya",
-          greeting: "Dearest family & friends,",
-          body1: "With hearts overflowing with joy, we invite you to join us in celebrating the wedding of our beloved son Kshitij with Aishwarya. Your presence is our greatest blessing as we come together for this joyous occasion.",
-          body2: "Being surrounded by our cherished family and friends fills us with profound happiness. We feel incredibly blessed to share this beautiful journey with those we hold most dear.",
-          body3: "Thank you for your love, warmth, and blessings as we celebrate this wonderful new chapter.",
-          signoff: "With love and blessings,",
-          name: "Surekha & Maruti"
+          greeting: "Dear Family & Friends,",
+          body1: "With immense joy, we invite you to celebrate the wedding of our beloved son, Kshitij, as he begins this beautiful new chapter with Aishwarya.",
+          body2: "This is a moment our family has long looked forward to, and it would mean so much to have you with us as we celebrate, share our happiness, and bless the couple on their journey ahead.",
+          body3: "Your presence and blessings will make this occasion even more special, and we look forward to creating wonderful memories together.",
+          signoff: "With love,",
+          name: "Surekha & Maruti",
+          hideCompliments: true
         },
       };
       var from = new URLSearchParams(window.location.search).get('from');
@@ -1002,18 +1134,21 @@
       }
       var p = from && personas[from];
       if (p) {
-        document.getElementById('welcome-header').textContent       = p.header;
-        document.getElementById('welcome-names').textContent        = p.names;
-        document.getElementById('welcome-signoff').textContent      = p.signoff || 'Warm regards,';
+        document.getElementById('welcome-header').textContent  = p.header;
+        var nms = document.getElementById('welcome-names');
+        nms.textContent    = p.names;
+        nms.style.display  = '';
+        document.getElementById('welcome-signoff').textContent      = p.signoff || 'With love,';
         document.getElementById('welcome-signoff-name').textContent = p.name;
         if (p.greeting) document.getElementById('welcome-greeting').textContent = p.greeting;
         if (p.body1)    document.getElementById('welcome-body-1').textContent   = p.body1;
         if (p.body2)    document.getElementById('welcome-body-2').textContent   = p.body2;
         if (p.body3)    document.getElementById('welcome-body-3').textContent   = p.body3;
-        if (p.hideCompliments) {
-          document.getElementById('compliments-section').style.display = 'none';
-        } else if (p.compliments) {
-          document.getElementById('compliments-names').textContent = p.compliments;
+        if (!p.hideCompliments) {
+          document.getElementById('compliments-section').style.display = '';
+          if (p.compliments) {
+            document.getElementById('compliments-names').textContent = p.compliments;
+          }
         }
       }
     })();
@@ -1048,10 +1183,11 @@
       btn.disabled = true;
       btn.textContent = 'Sending…';
 
+      const checkedEvents = [...form.querySelectorAll('input[name="events"]:checked')].map(cb => cb.value).join(', ');
       const data = new URLSearchParams({
         name:      form.name.value,
-        email:     form.email.value,
         attending: form.attending.value,
+        events:    checkedEvents,
         guests:    form.guests.value,
         message:   form.message.value,
       });
