@@ -1,7 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "Bash(open /Users/aishwaryakumar/HSYE/HSyE-Hospital-Tool-Backend/sample/index.html)"
+      "Bash(open /Users/aishwaryakumar/HSYE/HSyE-Hospital-Tool-Backend/sample/index.html)",
+      "Bash(xargs ls -lh)",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(cwebp -version)",
+      "Bash(convert --version)",
+      "Bash(npx svgo *)",
+      "Bash(sips --help)",
+      "Bash(sips -s format webp \"/Users/aishwaryakumar/Desktop/Wedding Invite Final/Mehendi2.png\" --out /tmp/test.webp)",
+      "Bash(brew list *)",
+      "Bash(brew search *)",
+      "Bash(cwebp -q 92 '/Users/aishwaryakumar/Desktop/Wedding Invite Final/Mehendi2.png' -o '/Users/aishwaryakumar/Desktop/Wedding Invite Final/Mehendi2.webp' -quiet)",
+      "Bash(cwebp -q 92 '/Users/aishwaryakumar/Desktop/Wedding Invite Final/Page 1 decluttrd.png' -o '/Users/aishwaryakumar/Desktop/Wedding Invite Final/Page 1 decluttrd.webp' -quiet)",
+      "Bash(cwebp -q 92 '/Users/aishwaryakumar/Desktop/Wedding Invite Final/SVG paint/haldi 32.png' -o '/Users/aishwaryakumar/Desktop/Wedding Invite Final/SVG paint/haldi 32.webp' -quiet)",
+      "Bash(cwebp -q 92 '/Users/aishwaryakumar/Desktop/Wedding Invite Final/wedding 2.png' -o '/Users/aishwaryakumar/Desktop/Wedding Invite Final/wedding 2.webp' -quiet)",
+      "Bash(cwebp -q 92 '/Users/aishwaryakumar/Desktop/Wedding Invite Final/reception more sky.png' -o '/Users/aishwaryakumar/Desktop/Wedding Invite Final/reception more sky.webp' -quiet)"
     ]
   }
 }
