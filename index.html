@@ -274,6 +274,17 @@
       display: none;
     }
 
+    /* Wider text column on larger screens so the invite copy isn't squeezed by side padding */
+    @media (min-width: 769px) {
+      .section-page1 .panel-text-inner {
+        max-width: 560px;
+      }
+      .section-page1 .panel-text {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+    }
+
     /* Extra visual weight on all pages */
     .panel-text-inner p:not(.invite-name) {
       -webkit-text-stroke: 0.6px currentColor;
@@ -699,12 +710,12 @@
   <!-- Section 1 · Kalyanam (Wedding invite)                 -->
   <!-- ══════════════════════════════════════════════════════ -->
   <section class="section section-page1">
-    <div class="panel-text">
+    <div class="panel-text" id="page1-panel-text">
       <img class="rangoli" src="svg bg rangoloi.svg" alt="" aria-hidden="true" />
       <div class="panel-text-inner">
         <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
         <p id="welcome-header" style="font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; margin-bottom:12px; font-weight:700;">Cordially inviting you to our wedding</p>
-        <p id="welcome-names" class="invite-name" style="display:none; margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</p>
+        <div id="welcome-names" class="invite-name" style="display:none; margin-top:0; color:#b8860b;">Aishwarya &amp; Kshitij</div>
         <p id="welcome-greeting" class="invite-body" style="margin-top:50px; margin-bottom:10px; text-align:left; font-weight:700; line-height:1.5; font-size:1.35rem; color:#b8860b; font-style:italic;">To our beloved family and friends,</p>
         <p id="welcome-body-1" class="invite-body" style="margin-bottom:20px; text-align:left; font-weight:700; line-height:1.9; font-size:1.2rem;">
           Every beautiful story is shaped by the people who walk beside us, and ours is no different. As we begin this new chapter together, we are so grateful for the love and countless memories that have brought us here.
@@ -1103,13 +1114,22 @@
         'ArvindShanthi': {
           header: "Cordially inviting you to the wedding of our daughter",
           names: "Aishwarya with Kshitij",
+          namesHTML: '<div style="margin:24px 0;">' +
+                       '<p class="invite-name" style="color:#b8860b; margin-bottom:2px;">Aishwarya Arvind</p>' +
+                       '<p class="invite-ampersand" style="margin:10px 0 0;">with</p>' +
+                       '<p class="invite-name" style="color:#b8860b; margin-top:28px;">Kshitij Vejre</p>' +
+                     '</div>' +
+                     '<p class="invite-parents" style="margin-top:8px; margin-bottom:0; font-family:\'Cormorant Garamond\', Georgia, serif; font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; font-weight:700;">Son of Smt. Surekha Vejre &amp; Shri Maruti Narayan Vejre</p>',
           greeting: "Dear Family & Friends,",
           body1: "With immense joy, we invite you to celebrate the wedding of our beloved daughter, Aishwarya, as she begins this beautiful new chapter with Kshitij.",
           body2: "This is a moment our family has long looked forward to, and it would mean so much to have you with us as we celebrate, share our happiness, and bless the couple on their journey ahead.",
           body3: "Your presence and blessings will make this occasion even more special, and we look forward to creating wonderful memories together.",
           signoff: "With love,",
           name: "Shanthi and Arvind",
-          compliments: "Sharan Srinivas, Anitha & Santharam, Deepa & Saravanan, Viveka & Manoj, Vidhya & Varun, Niharika & Aadvik, Varsha"
+          compliments: "Sharan Srinivas, Anitha & Santharam, A. Gandhi, Deepa & Saravanan, Viveka & Manoj, Vidhya & Varun, Niharika, Aadvik & Varsha",
+          complimentsHTML: 'Sharan Srinivas, Anitha &amp; Santharam,<br />' +
+                            'A. Gandhi, Deepa &amp; Saravanan, Viveka &amp; Manoj,<br />' +
+                            'Vidhya &amp; Varun, Niharika, Aadvik &amp; Varsha'
         },
         'ArvindShanthiNBC': {
           header: "Cordially inviting you to the wedding of our daughter",
@@ -1140,10 +1160,14 @@
         document.getElementById('physical-arvind').style.display = 'flex';
       }
       var p = from && personas[from];
+      if (from === 'ArvindShanthi') {
+        var page1PanelText = document.getElementById('page1-panel-text');
+        if (page1PanelText) page1PanelText.style.alignItems = 'center';
+      }
       if (p) {
         document.getElementById('welcome-header').textContent  = p.header;
         var nms = document.getElementById('welcome-names');
-        nms.textContent    = p.names;
+        if (p.namesHTML) { nms.innerHTML = p.namesHTML; } else { nms.textContent = p.names; }
         nms.style.display  = '';
         document.getElementById('welcome-signoff').textContent      = p.signoff || 'With love,';
         document.getElementById('welcome-signoff-name').textContent = p.name;
@@ -1153,8 +1177,11 @@
         if (p.body3)    document.getElementById('welcome-body-3').textContent   = p.body3;
         if (!p.hideCompliments) {
           document.getElementById('compliments-section').style.display = '';
-          if (p.compliments) {
-            document.getElementById('compliments-names').textContent = p.compliments;
+          var complimentsEl = document.getElementById('compliments-names');
+          if (p.complimentsHTML) {
+            complimentsEl.innerHTML = p.complimentsHTML;
+          } else if (p.compliments) {
+            complimentsEl.textContent = p.compliments;
           }
         }
       }
