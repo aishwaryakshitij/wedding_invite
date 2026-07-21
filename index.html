@@ -1306,7 +1306,7 @@
     }
 
     btn.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.preventDefault();
       if (!started) {
         audio.play().catch(() => {});
         started = true;
