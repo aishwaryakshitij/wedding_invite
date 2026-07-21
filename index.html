@@ -106,7 +106,7 @@
       flex: 0 0 50%;
       max-width: 50%;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       padding: 60px 48px;
       background-image: url("svf texture background.svg");
@@ -152,7 +152,17 @@
       position: relative;
       display: block;
       width: 95px;
-      margin: 0 auto 5px;
+      margin: 0 auto 32px;
+      flex-shrink: 0;
+    }
+
+    /* Page 1 specific spacing */
+    #welcome-header {
+      margin-bottom: 24px !important;
+    }
+
+    #welcome-greeting {
+      margin-top: 28px !important;
     }
 
 .invite-icon {
@@ -167,8 +177,13 @@
       font-size: 2.8rem;
       font-weight: 700;
       color: #7b1a10;
+      margin-top: 0;
       margin-bottom: 28px;
       line-height: 1.2;
+    }
+
+    .invite-icon-wrap + .invite-title {
+      margin-top: 32px;
     }
 
     /* Body copy */
@@ -283,6 +298,47 @@
         padding-left: 32px;
         padding-right: 32px;
       }
+    }
+
+    /* Ultra-wide monitor adjustments */
+    @media (min-width: 1920px) {
+      .section-page1 .panel-text-inner {
+        max-width: 580px;
+      }
+      .invite-icon-wrap {
+        margin-bottom: 40px;
+      }
+      #welcome-header {
+        margin-bottom: 32px !important;
+      }
+      #welcome-greeting {
+        margin-top: 36px !important;
+      }
+      .invite-icon-wrap + .invite-title {
+        margin-top: 40px;
+      }
+      .invite-title { font-size: 3rem; }
+      .invite-body { font-size: 1.25rem; }
+    }
+
+    @media (min-width: 2560px) {
+      .section-page1 .panel-text-inner {
+        max-width: 700px;
+      }
+      .invite-icon-wrap {
+        margin-bottom: 48px;
+      }
+      #welcome-header {
+        margin-bottom: 36px !important;
+      }
+      #welcome-greeting {
+        margin-top: 40px !important;
+      }
+      .invite-icon-wrap + .invite-title {
+        margin-top: 48px;
+      }
+      .invite-title { font-size: 3.4rem; }
+      .invite-body { font-size: 1.4rem; }
     }
 
     /* Extra visual weight on all pages */
@@ -989,7 +1045,7 @@
       <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
       <h2 class="invite-title" style="margin-bottom:16px;">RSVP</h2>
       <p id="rsvp-deadline" class="invite-body" style="margin-bottom:0;">
-        Kindly respond by <strong>August 1st, 2026</strong>
+        Kindly respond by <strong>August 15th, 2026</strong>
       </p>
 
       <form class="rsvp-form" id="rsvp-form">
