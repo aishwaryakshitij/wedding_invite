@@ -1121,7 +1121,7 @@
   </section>
 
   <!-- ── Background music ── -->
-  <audio id="bg-audio" loop>
+  <audio id="bg-audio" loop preload="auto" muted>
     <source src="final-audio.mp3" type="audio/mpeg" />
   </audio>
 
@@ -1248,10 +1248,15 @@
 
     let started = false;
     function startAudio() {
-      if (!started) { audio.play().catch(() => {}); started = true; }
+      if (!started) {
+        audio.muted = false;
+        audio.play().catch(() => {});
+        started = true;
+      }
     }
     document.addEventListener('click',      startAudio, { once: true });
     document.addEventListener('scroll',     startAudio, { once: true });
+    document.addEventListener('wheel',      startAudio, { once: true });
     document.addEventListener('touchstart', startAudio, { once: true });
 
     // ── RSVP ──────────────────────────────────────────────
@@ -1306,12 +1311,24 @@
     }
 
     btn.addEventListener('click', (e) => {
-      e.preventDefault();
+      e.stopPropagation();
       if (!started) {
-        audio.play().catch(() => {});
-        started = true;
-        audio.muted = false;
-        setMuteIcon(false);
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            started = true;
+            audio.muted = false;
+            setMuteIcon(false);
+          }).catch(() => {
+            started = true;
+            audio.muted = false;
+            setMuteIcon(false);
+          });
+        } else {
+          started = true;
+          audio.muted = false;
+          setMuteIcon(false);
+        }
       } else {
         audio.muted = !audio.muted;
         setMuteIcon(audio.muted);
