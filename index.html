@@ -1121,7 +1121,7 @@
   </section>
 
   <!-- ── Background music ── -->
-  <audio id="bg-audio" loop preload="auto" muted>
+  <audio id="bg-audio" loop>
     <source src="final-audio.mp3" type="audio/mpeg" />
   </audio>
 
@@ -1187,6 +1187,27 @@
                             'A. Gandhi, Deepa &amp; Saravanan, Viveka &amp; Manoj,<br />' +
                             'Vidhya &amp; Varun, Niharika, Aadvik and Varsha'
         },
+        'arvindshanti_wc': {
+          header: "Cordially inviting you to the wedding of our daughter",
+          names: "Aishwarya with Kshitij",
+          namesHTML: '<div style="margin:24px 0;">' +
+                       '<p class="invite-name" style="color:#b8860b; margin-bottom:2px;">Aishwarya Arvind</p>' +
+                       '<p class="invite-ampersand" style="margin:10px 0 0;">with</p>' +
+                       '<p class="invite-name" style="color:#b8860b; margin-top:28px;">Kshitij Vejre</p>' +
+                     '</div>' +
+                     '<p class="invite-parents" style="margin-top:8px; margin-bottom:0; font-family:\'Cormorant Garamond\', Georgia, serif; font-style:normal; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#7b1a10; font-weight:700;">Son of Smt. Surekha Vejre &amp; Shri Maruti Narayan Vejre</p>',
+          greeting: "Dear Family & Friends,",
+          body1: "With immense joy, we invite you to celebrate the wedding of our beloved daughter, Aishwarya, as she begins this beautiful new chapter with Kshitij.",
+          body2: "This is a moment our family has long looked forward to, and it would mean so much to have you with us as we celebrate, share our happiness, and bless the couple on their journey ahead.",
+          body3: "Your presence and blessings will make this occasion even more special, and we look forward to creating wonderful memories together.",
+          signoff: "With love,",
+          name: "Shanthi and Arvind",
+          compliments: "Sharan Srinivas, Anitha & Santharam, Gandhi & (Late) Jayanthi, Kumaran & Jessy, Deepa & Saravanan, Viveka & Manoj, Vidhya & Varun, Lavanya & Ramkumar, Naveen & Preetha, Priya, Janani, Dinesh, Maya, Niharika, Aadvik, Nilan, Varsha",
+          complimentsHTML: 'Sharan Srinivas, Anitha &amp; Santharam, Gandhi &amp; (Late) Jayanthi,<br />' +
+                            'Kumaran &amp; Jessy, Deepa &amp; Saravanan, Viveka &amp; Manoj,<br />' +
+                            'Vidhya &amp; Varun, Lavanya &amp; Ramkumar, Naveen &amp; Preetha,<br />' +
+                            'Priya, Janani, Dinesh, Maya, Niharika, Aadvik, Nilan, Varsha'
+        },
         'ArvindShanthiNBC': {
           header: "Cordially inviting you to the wedding of our daughter",
           names: "Aishwarya with Kshitij",
@@ -1248,15 +1269,10 @@
 
     let started = false;
     function startAudio() {
-      if (!started) {
-        audio.muted = false;
-        audio.play().catch(() => {});
-        started = true;
-      }
+      if (!started) { audio.play().catch(() => {}); started = true; }
     }
     document.addEventListener('click',      startAudio, { once: true });
     document.addEventListener('scroll',     startAudio, { once: true });
-    document.addEventListener('wheel',      startAudio, { once: true });
     document.addEventListener('touchstart', startAudio, { once: true });
 
     // ── RSVP ──────────────────────────────────────────────
@@ -1311,24 +1327,12 @@
     }
 
     btn.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.preventDefault();
       if (!started) {
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-          playPromise.then(() => {
-            started = true;
-            audio.muted = false;
-            setMuteIcon(false);
-          }).catch(() => {
-            started = true;
-            audio.muted = false;
-            setMuteIcon(false);
-          });
-        } else {
-          started = true;
-          audio.muted = false;
-          setMuteIcon(false);
-        }
+        audio.play().catch(() => {});
+        started = true;
+        audio.muted = false;
+        setMuteIcon(false);
       } else {
         audio.muted = !audio.muted;
         setMuteIcon(audio.muted);
