@@ -567,20 +567,23 @@
 
     .day-heading {
       font-family: 'Architype Albers', 'Cinzel Decorative', serif;
-      font-size: 2.8rem;
+      font-size: 2rem;
       font-weight: 700;
       color: #7b1a10;
-      line-height: 1.2;
-      margin-bottom: 14px;
+      line-height: 1.25;
+      margin-bottom: 16px;
     }
 
     .day-date {
+      display: inline-block;
       font-size: 0.95rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       font-weight: 900;
       -webkit-text-stroke: 0.8px currentColor;
-      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(123, 26, 16, 0.5);
+      padding-bottom: 7px;
+      margin-bottom: 18px;
     }
 
     .day-tagline {
@@ -593,7 +596,7 @@
 
     /* Timeline */
     .day-timeline {
-      margin: 38px 0 32px;
+      margin: 34px 0 30px;
       text-align: left;
     }
 
@@ -648,7 +651,7 @@
 
     .day-detail {
       flex: 1;
-      padding-bottom: 30px;
+      padding-bottom: 24px;
     }
 
     .day-event:last-child .day-detail { padding-bottom: 0; }
@@ -762,7 +765,7 @@
 
     @media (max-width: 768px) {
       .section-day { padding: 60px 24px; }
-      .day-heading { font-size: 1.7rem; }
+      .day-heading { font-size: 1.4rem; }
       .day-date { font-size: 0.8rem; letter-spacing: 0.16em; }
       .day-time { flex-basis: 84px; font-size: 1rem; }
       .day-rail { flex-basis: 22px; }
@@ -1070,25 +1073,65 @@
   <section class="section-day">
     <div class="day-inner">
       <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
-      <h2 class="day-heading">31st August</h2>
-      <p class="day-date">Monday · 2026</p>
+      <h2 class="day-heading">A Guide to Our Wedding Day</h2>
+      <p class="day-date">Monday · 31 August 2026</p>
       <p class="day-tagline">The day we have been waiting for — here is how it unfolds.</p>
 
       <div class="day-timeline">
         <div class="day-event">
-          <div class="day-time">10:00<span class="day-ampm">AM</span></div>
+          <div class="day-time">9:30<span class="day-ampm">AM</span></div>
           <div class="day-rail"><span class="day-dot"></span></div>
           <div class="day-detail">
-            <h3>Wedding · Muhurtham</h3>
-            <p>Vows exchanged before the sacred fire, witnessed by family and friends.</p>
+            <h3>Gowri Prarthana</h3>
+            <p>The bride enters beneath the floral canopy, followed by prayers and traditional blessings for a harmonious married life.</p>
           </div>
         </div>
         <div class="day-event">
-          <div class="day-time">5:00<span class="day-ampm">PM</span></div>
+          <div class="day-time">10:00<span class="day-ampm">AM</span></div>
+          <div class="day-rail"><span class="day-dot"></span></div>
+          <div class="day-detail">
+            <h3>Baraat</h3>
+            <p>The groom arrives with the Baraat and is ceremonially welcomed by the bride&rsquo;s family before entering the mandap.</p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="day-time">10:15<span class="day-ampm">AM</span></div>
+          <div class="day-rail"><span class="day-dot"></span></div>
+          <div class="day-detail">
+            <h3>Ganapati Pooja</h3>
+            <p>Both families begin the wedding rituals by seeking Lord Ganesha&rsquo;s blessings for an auspicious start.</p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="day-time">10:30<span class="day-ampm">AM</span></div>
+          <div class="day-rail"><span class="day-dot"></span></div>
+          <div class="day-detail">
+            <h3>Maharashtrian Wedding Ceremony</h3>
+            <p>Antarpat, where the couple is separated by a curtain until the auspicious moment, followed by their first exchange of garlands.</p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="day-time">12:00<span class="day-ampm">PM</span></div>
+          <div class="day-rail"><span class="day-dot"></span></div>
+          <div class="day-detail">
+            <h3>Tamil Wedding Ceremony</h3>
+            <p>The tying of the Thali, sacred rounds, Saptapadi, and family blessings.</p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="day-time">12:45<span class="day-ampm">PM</span></div>
+          <div class="day-rail"><span class="day-dot"></span></div>
+          <div class="day-detail">
+            <h3>Wedding Lunch</h3>
+            <p>Guests gather for lunch as the morning wedding ceremonies conclude.</p>
+          </div>
+        </div>
+        <div class="day-event">
+          <div class="day-time">6:00<span class="day-ampm">PM</span></div>
           <div class="day-rail"><span class="day-dot"></span></div>
           <div class="day-detail">
             <h3>Reception</h3>
-            <p>Dinner, music and dancing as the celebration carries on into the evening.</p>
+            <p>An evening celebration with family and friends to celebrate the newlyweds.</p>
           </div>
         </div>
       </div>

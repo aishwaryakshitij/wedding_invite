@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(rm -f _daycheck.html)",
-      "Bash(pkill -f \"http.server 8899\")"
+      "Bash(pkill -f \"http.server 8899\")",
+      "Bash(rm -f _daycheck.html _fonttest.html)"
     ]
   }
 }
