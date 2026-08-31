@@ -534,8 +534,8 @@
       .invite-title { font-size: 1.4rem; }
     }
 
-    /* ─── RSVP SECTION ───────────────────────────────────── */
-    .section-rsvp {
+    /* ─── DAY-OF SCHEDULE ────────────────────────────────── */
+    .section-day {
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -548,7 +548,7 @@
       background-position: center;
     }
 
-    .section-rsvp::after {
+    .section-day::after {
       content: '';
       position: absolute;
       inset: 0;
@@ -558,164 +558,186 @@
       z-index: 1000;
     }
 
-    /* .section-rsvp::before {
-      content: '';
-      position: absolute;
-      inset: 15px;
-      pointer-events: none;
-      z-index: 1001;
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='5'%3E%3Cpolygon points='2.5,0.7 4.3,2.5 2.5,4.3 0.7,2.5' fill='%23f5f0e0'/%3E%3Ccircle cx='11' cy='2.5' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='5'%3E%3Cpolygon points='2.5,0.7 4.3,2.5 2.5,4.3 0.7,2.5' fill='%23f5f0e0'/%3E%3Ccircle cx='11' cy='2.5' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='16'%3E%3Cpolygon points='0.7,2.5 2.5,0.7 4.3,2.5 2.5,4.3' fill='%23f5f0e0'/%3E%3Ccircle cx='2.5' cy='11' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='16'%3E%3Cpolygon points='0.7,2.5 2.5,0.7 4.3,2.5 2.5,4.3' fill='%23f5f0e0'/%3E%3Ccircle cx='2.5' cy='11' r='1.5' fill='%23f5f0e0'/%3E%3C/svg%3E");
-      background-size:     16px 5px,  16px 5px,  5px 16px,  5px 16px;
-      background-position: 0 0,       0 100%,    0 0,       100% 0;
-      background-repeat:   repeat-x,  repeat-x,  repeat-y,  repeat-y;
-    } */
-
-    .rsvp-inner {
-      max-width: 540px;
+    .day-inner {
+      max-width: 580px;
       width: 100%;
       text-align: center;
       color: #7b1a10;
     }
 
-    .rsvp-form {
-      margin-top: 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .day-heading {
+      font-family: 'Architype Albers', 'Cinzel Decorative', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #7b1a10;
+      line-height: 1.2;
+      margin-bottom: 14px;
     }
 
-    .rsvp-field {
-      display: flex;
-      flex-direction: column;
+    .day-date {
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 900;
+      -webkit-text-stroke: 0.8px currentColor;
+      margin-bottom: 14px;
+    }
+
+    .day-tagline {
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.7;
+      color: #b8860b;
+    }
+
+    /* Timeline */
+    .day-timeline {
+      margin: 38px 0 32px;
       text-align: left;
     }
 
-    .rsvp-field input,
-    .rsvp-field select,
-    .rsvp-field textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(123, 26, 16, 0.5);
-      padding: 10px 2px;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.1rem;
+    .day-event {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .day-time {
+      flex: 0 0 108px;
+      text-align: right;
+      font-size: 1.15rem;
       font-weight: 900;
-      -webkit-text-stroke: 0.5px currentColor;
+      letter-spacing: 0.04em;
+      -webkit-text-stroke: 0.7px currentColor;
       color: #7b1a10;
-      outline: none;
-      transition: border-color 0.2s;
+      padding-top: 1px;
+      white-space: nowrap;
     }
 
-    .rsvp-field input:focus,
-    .rsvp-field select:focus,
-    .rsvp-field textarea:focus {
-      border-bottom-color: #7b1a10;
+    .day-ampm {
+      font-size: 0.68em;
+      letter-spacing: 0.1em;
+      margin-left: 5px;
     }
 
-    .rsvp-field input::placeholder,
-    .rsvp-field textarea::placeholder {
-      color: rgba(123, 26, 16, 0.45);
+    .day-rail {
+      flex: 0 0 30px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .day-rail::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      bottom: 0;
+      border-left: 1px dotted rgba(123, 26, 16, 0.45);
+    }
+
+    .day-event:last-child .day-rail::before { display: none; }
+
+    .day-dot {
+      position: relative;
+      width: 9px;
+      height: 9px;
+      margin-top: 6px;
+      background: #b8860b;
+      transform: rotate(45deg);
+    }
+
+    .day-detail {
+      flex: 1;
+      padding-bottom: 30px;
+    }
+
+    .day-event:last-child .day-detail { padding-bottom: 0; }
+
+    .day-detail h3 {
+      font-family: 'Architype Albers', 'Cinzel Decorative', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #7b1a10;
+      line-height: 1.25;
+      margin-bottom: 7px;
+    }
+
+    .day-detail p {
+      font-size: 1rem;
       font-style: italic;
       font-weight: 700;
+      line-height: 1.7;
+      color: #7b1a10;
     }
 
-    .rsvp-field select option {
-      color: #333;
+    /* Venue */
+    .day-venue a { text-decoration: none; }
+
+    .day-venue-place {
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 900;
+      -webkit-text-stroke: 0.8px currentColor;
+      color: #7b1a10;
+      display: inline-block;
+      cursor: pointer;
     }
 
-    .rsvp-field textarea {
-      resize: none;
-      height: 80px;
+    /* Live stream */
+    .day-stream {
+      margin-top: 44px;
+      padding-top: 32px;
+      border-top: 1px dotted rgba(123, 26, 16, 0.4);
     }
 
-    .rsvp-radio-group {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-      margin: 4px 0;
+    .day-stream-label {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #b8860b;
+      margin-bottom: 10px;
     }
 
-    .rsvp-radio-group label {
+    .day-stream-title {
+      font-family: 'Architype Albers', 'Cinzel Decorative', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #7b1a10;
+      line-height: 1.2;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-style: italic;
-      font-weight: 900;
-      -webkit-text-stroke: 0.5px currentColor;
-      color: #7b1a10;
-    }
-
-    .rsvp-radio-group input[type="radio"] {
-      accent-color: #7b1a10;
-      width: 16px;
-      height: 16px;
-    }
-
-    .rsvp-divider {
-      border: none;
-      border-top: 1px dotted rgba(123, 26, 16, 0.35);
-      margin: 4px 0;
-    }
-
-    #guest-count-field {
-      transition: opacity 0.3s;
-    }
-
-    .rsvp-events-label {
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #7b1a10;
-      font-style: normal;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .rsvp-checkbox-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 24px;
-      width: 100%;
-    }
-
-    .rsvp-checkbox-group label {
-      display: flex;
-      align-items: flex-start;
+      justify-content: center;
       gap: 10px;
-      cursor: pointer;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #d32f2f;
+      animation: live-pulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes live-pulse {
+      0%, 100% { opacity: 1;    transform: scale(1); }
+      50%      { opacity: 0.3;  transform: scale(0.75); }
+    }
+
+    .day-stream-copy {
       font-size: 1rem;
       font-style: italic;
-      color: #7b1a10;
-      line-height: 1.4;
-    }
-
-    .rsvp-checkbox-group input[type="checkbox"] {
-      accent-color: #7b1a10;
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .rsvp-event-note {
-      font-size: 0.82rem;
-      font-style: normal;
-      color: #b8860b;
       font-weight: 700;
-      margin-left: 26px;
-      margin-top: -6px;
+      line-height: 1.7;
+      color: #7b1a10;
     }
 
-    .rsvp-submit {
-      margin-top: 8px;
+    .day-stream-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
       background: #7b1a10;
       border: 2px solid #7b1a10;
       color: #f9f3ec;
@@ -723,32 +745,29 @@
       font-size: 1.05rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 13px 48px;
-      cursor: pointer;
-      transition: background 0.25s, color 0.25s;
-      align-self: center;
+      padding: 13px 40px;
+      text-decoration: none;
+      transition: background 0.25s;
     }
 
-    .rsvp-submit:hover {
-      background: #7b1a10;
-      color: #f9f3ec;
-    }
+    .day-stream-btn:hover { background: #5d1109; }
 
-    .rsvp-submit:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
-
-    #rsvp-success {
-      margin-top: 32px;
-      font-size: 1.1rem;
-      font-style: italic;
-      line-height: 1.8;
-      color: #7b1a10;
+    .day-stream-url {
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: rgba(123, 26, 16, 0.7);
+      margin-top: 14px;
+      word-break: break-all;
     }
 
     @media (max-width: 768px) {
-      .section-rsvp { padding: 60px 28px; }
+      .section-day { padding: 60px 24px; }
+      .day-heading { font-size: 1.7rem; }
+      .day-date { font-size: 0.8rem; letter-spacing: 0.16em; }
+      .day-time { flex-basis: 84px; font-size: 1rem; }
+      .day-rail { flex-basis: 22px; }
+      .day-detail h3 { font-size: 1.1rem; }
+      .day-stream-btn { padding: 13px 32px; }
     }
 
 </style>
@@ -958,7 +977,7 @@
           <a href="https://maps.app.goo.gl/pfAuf7W8GSAMdrq69" target="_blank" style="text-decoration: none;">
             <p class="place" style="font-weight:700; cursor:pointer; display:inline-block;">20968 E Beekman Pl, Denver, CO 80249 <span style="font-size:0.9em; opacity:0.7;">↗</span></p>
           </a>
-          <p style="font-size:0.78rem; font-style:italic; opacity:0.65; margin-top:4px;">Mehendi can also be held on August 29th after Haldi</p>
+          <p style="font-size:0.78rem; font-style:italic; opacity:0.65; margin-top:4px;">Mehendi will also be held on August 29th after Haldi</p>
         </div>
       </div>
     </div>
@@ -1046,84 +1065,49 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════ -->
-  <!-- RSVP                                                  -->
+  <!-- Section 6 · Today — schedule & live stream            -->
   <!-- ══════════════════════════════════════════════════════ -->
-  <section class="section-rsvp">
-    <div class="rsvp-inner">
+  <section class="section-day">
+    <div class="day-inner">
       <span class="invite-icon-wrap"><img class="invite-icon" src="test/Ganpathi.svg" alt="Ganpathi" /></span>
-      <h2 class="invite-title" style="margin-bottom:16px;">RSVP</h2>
-      <p id="rsvp-deadline" class="invite-body" style="margin-bottom:0;">
-        Kindly respond by <strong>August 15th, 2026</strong>
-      </p>
+      <h2 class="day-heading">31st August</h2>
+      <p class="day-date">Monday · 2026</p>
+      <p class="day-tagline">The day we have been waiting for — here is how it unfolds.</p>
 
-      <form class="rsvp-form" id="rsvp-form">
-
-        <div class="rsvp-field">
-          <input type="text" name="name" placeholder="Your Full Name" required />
-        </div>
-
-
-        <div class="rsvp-field" style="text-align:center;">
-          <div class="rsvp-radio-group">
-            <label>
-              <input type="radio" name="attending" value="Joyfully Accepts" required />
-              Joyfully Accepts
-            </label>
-            <label>
-              <input type="radio" name="attending" value="Regretfully Declines" />
-              Regretfully Declines
-            </label>
+      <div class="day-timeline">
+        <div class="day-event">
+          <div class="day-time">10:00<span class="day-ampm">AM</span></div>
+          <div class="day-rail"><span class="day-dot"></span></div>
+          <div class="day-detail">
+            <h3>Wedding · Muhurtham</h3>
+            <p>Vows exchanged before the sacred fire, witnessed by family and friends.</p>
           </div>
         </div>
-
-        <hr class="rsvp-divider" />
-
-        <div class="rsvp-field" id="events-field">
-          <p class="rsvp-events-label">Events I'll be attending</p>
-          <div class="rsvp-checkbox-group">
-            <label>
-              <input type="checkbox" name="events" value="Sakharpuda" checked />
-              Sakharpuda <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Sat, Aug 29 · 11:35 AM)</span>
-            </label>
-            <label>
-              <input type="checkbox" name="events" value="Haldi" checked />
-              Haldi <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Sat, Aug 29 · 12:30 PM onwards)</span>
-            </label>
-            <label>
-              <input type="checkbox" name="events" value="Mehendi" checked />
-              Mehendi <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Sun, Aug 30 · 11 AM)</span>
-            </label>
-            <label>
-              <input type="checkbox" name="events" value="Wedding" checked />
-              Wedding <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Mon, Aug 31 · 10 AM)</span>
-            </label>
-            <label>
-              <input type="checkbox" name="events" value="Reception" checked />
-              Reception <span style="font-style:normal; font-size:0.88rem; opacity:0.75;">(Mon, Aug 31 · 5 PM)</span>
-            </label>
+        <div class="day-event">
+          <div class="day-time">5:00<span class="day-ampm">PM</span></div>
+          <div class="day-rail"><span class="day-dot"></span></div>
+          <div class="day-detail">
+            <h3>Reception</h3>
+            <p>Dinner, music and dancing as the celebration carries on into the evening.</p>
           </div>
         </div>
+      </div>
 
-        <div class="rsvp-field" id="guest-count-field">
-          <select name="guests">
-            <option value="0">Just me</option>
-            <option value="1">+ 1 guest</option>
-            <option value="2">+ 2 guests</option>
-            <option value="3">+ 3 guests</option>
-            <option value="4">+ 4 guests</option>
-          </select>
-        </div>
+      <div class="day-venue">
+        <a href="https://maps.app.goo.gl/nCLU7WLxtNv157ZKA" target="_blank" rel="noopener">
+          <p class="day-venue-place">At Baldoria on the Water<br />Lakewood, Colorado, USA <span style="font-size:0.9em; opacity:0.7;">↗</span></p>
+        </a>
+      </div>
 
-        <div class="rsvp-field">
-          <textarea name="message" placeholder="A note for the couple (optional)"></textarea>
-        </div>
-
-        <button type="submit" class="rsvp-submit">Send RSVP</button>
-      </form>
-
-      <div id="rsvp-success" style="display:none;">
-        <p>Thank you! We cannot wait to celebrate with you. 🌸</p>
-        <p style="font-size:0.9rem; margin-top:8px; opacity:0.7;">We'll be in touch soon.</p>
+      <div class="day-stream">
+        <p class="day-stream-label">Celebrating with us from afar?</p>
+        <h3 class="day-stream-title"><span class="live-dot"></span>Watch Live</h3>
+        <p class="day-stream-copy">We are streaming the day on YouTube so you can be part of it from wherever you are.</p>
+        <a class="day-stream-btn" href="https://youtube.com/live/uY5YbgYSLTY?feature=share" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+          Join the Live Stream
+        </a>
+        <p class="day-stream-url">youtube.com/live/uY5YbgYSLTY</p>
       </div>
     </div>
   </section>
@@ -1282,49 +1266,6 @@
     document.addEventListener('click',      startAudio, { once: true });
     document.addEventListener('scroll',     startAudio, { once: true });
     document.addEventListener('touchstart', startAudio, { once: true });
-
-    // ── RSVP ──────────────────────────────────────────────
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbztQQ0ExWH6Pq0R66kayuyu3Ll1g_vRFZU_WhFaG5eZ2XEpqANIJLPE4xBu6C_1yZ9VPg/exec';
-
-    // Hide guest count and events when declining
-    document.querySelectorAll('input[name="attending"]').forEach(radio => {
-      radio.addEventListener('change', () => {
-        const declining = radio.value === 'Regretfully Declines';
-        const guestField = document.getElementById('guest-count-field');
-        guestField.style.opacity = declining ? '0.3' : '1';
-        guestField.style.pointerEvents = declining ? 'none' : 'auto';
-        const eventsField = document.getElementById('events-field');
-        eventsField.style.display = declining ? 'none' : '';
-      });
-    });
-
-    document.getElementById('rsvp-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const btn  = form.querySelector('.rsvp-submit');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      const checkedEvents = [...form.querySelectorAll('input[name="events"]:checked')].map(cb => cb.value).join(', ');
-      const data = new URLSearchParams({
-        name:      form.name.value,
-        attending: form.attending.value,
-        guests:    form.guests.value,
-        message:   form.message.value,
-        events:    checkedEvents,
-      });
-
-      try {
-        await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data });
-        form.style.display = 'none';
-        document.getElementById('rsvp-deadline').style.display = 'none';
-        document.getElementById('rsvp-success').style.display = 'block';
-      } catch {
-        btn.disabled = false;
-        btn.textContent = 'Send RSVP';
-        alert('Something went wrong — please try again.');
-      }
-    });
 
     const iconSound = document.getElementById('icon-sound');
     const iconMute  = document.getElementById('icon-mute');
